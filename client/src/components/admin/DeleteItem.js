@@ -1,7 +1,9 @@
 import React from 'react'
 
-const DeleteItem = () => {
-    return <div>Delete item</div>
+class DeleteItem extends React.Component {
+    render() {
+        return <div>Delete item</div>
+    }
 }
 
 export default DeleteItem

@@ -1,7 +1,9 @@
 import React from 'react'
 
-const Index = () => {
-    return <div>Admin Index</div>
+class Index extends React.Component {
+    render(){
+        return <div>Admin Index</div>
+    }
 }
 
 export default Index
