@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "name": "werw",
+      "item_number": "wer",
+      "price": "4",
+      "weight": "5",
+      "stock": "3",
+      "id": 1
+    },
+    {
+      "name": "Spark Plug",
+      "item_number": "BPR6ES",
+      "price": "5.99",
+      "weight": "0.4",
+      "stock": "30",
+      "id": 2
+    },
+    {
+      "name": "wehjf",
+      "item_number": "hsejf",
+      "price": "4",
+      "weight": "4",
+      "stock": "5",
+      "id": 3
+    }
+  ]
+}

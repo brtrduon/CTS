@@ -1,9 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import ItemForm from './ItemForm'
+import { createItem } from '../../actions'
 
 class CreateItem extends React.Component {
     onSubmit = formValues => {
-        console.log(formValues)
+        this.props.createItem(formValues)
     }
     
     render() {
@@ -16,4 +18,4 @@ class CreateItem extends React.Component {
     }
 }
 
-export default CreateItem
+export default connect(null, { createItem })(CreateItem)
