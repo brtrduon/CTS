@@ -16,8 +16,8 @@ const App = () => {
                     <Switch>
                         <Route path='/' exact component={Index} />
                         <Route path='/create' exact component={CreateItem} />
-                        <Route path='/delete' exact component={DeleteItem} />
-                        <Route path='/edit' exact component={EditItem} />
+                        <Route path='/edit/:id' exact component={EditItem} />
+                        <Route path='/delete:id' exact component={DeleteItem} />
                     </Switch>
                 </div>
             </Router>

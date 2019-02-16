@@ -15,6 +15,18 @@ export default (state = {}, action) => {
                 )
             }
 
+        case 'GET_ITEM':
+            return {
+                ...state,
+                [action.payload.id]: action.payload
+            }
+
+        case 'EDIT_ITEM':
+            return {
+                ...state,
+                [action.payload.id]: action.payload
+            }
+
         default:
             return state
     }

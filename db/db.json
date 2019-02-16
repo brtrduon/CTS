@@ -1,12 +1,14 @@
 {
   "items": [
     {
-      "name": "werw",
-      "item_number": "wer",
+      "name": "New Item Name",
+      "item_number": "A843556",
       "price": "4",
       "weight": "5",
       "stock": "3",
-      "id": 1
+      "id": 1,
+      "description": "This is a description",
+      "brand": "Echo"
     },
     {
       "name": "Spark Plug",
@@ -23,6 +25,17 @@
       "weight": "4",
       "stock": "5",
       "id": 3
+    },
+    {
+      "name": "Test item",
+      "description": "asdgfg",
+      "brand": "Stihl",
+      "item_type": "Something",
+      "item_number": "345743",
+      "price": "4",
+      "weight": "3",
+      "stock": "12",
+      "id": 4
     }
   ]
 }
