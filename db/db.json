@@ -1,13 +1,13 @@
 {
   "items": [
     {
-      "name": "New Item Name",
+      "name": "Some Item Name",
       "item_number": "A843556",
       "price": "4",
       "weight": "5",
       "stock": "3",
       "id": 1,
-      "description": "This is a description",
+      "description": "Description",
       "brand": "Echo"
     },
     {
@@ -17,14 +17,6 @@
       "weight": "0.4",
       "stock": "30",
       "id": 2
-    },
-    {
-      "name": "wehjf",
-      "item_number": "hsejf",
-      "price": "4",
-      "weight": "4",
-      "stock": "5",
-      "id": 3
     },
     {
       "name": "Test item",

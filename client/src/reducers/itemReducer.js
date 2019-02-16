@@ -23,9 +23,13 @@ export default (state = {}, action) => {
 
         case 'EDIT_ITEM':
             return {
-                ...state,
                 [action.payload.id]: action.payload
             }
+
+        case 'DELETE_ITEM':
+            return _.omit(
+                action.payload
+            )
 
         default:
             return state
