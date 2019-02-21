@@ -1,8 +1,12 @@
 import history from '../history'
-import serverURL from './serverURL'
+import axios from 'axios'
+// import serverURL from './serverURL'
+
+const serverURL = 'http://localhost:3001'
 
 export const createItem = formValues => async dispatch => {
-    const res = await serverURL.post('/items', { ...formValues })
+    // const res = await serverURL.post('/items', { ...formValues })
+    const res = await axios.post(`${serverURL}/createItem`)
 
     dispatch({
         type: 'CREATE_ITEM',

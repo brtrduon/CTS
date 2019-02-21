@@ -31,3 +31,4 @@ adminSchema.pre('save', next => {
     })
 })
 
+module.exports = adminSchema
