@@ -4,17 +4,32 @@ const Schema = mongoose.Schema
 const itemSchema = new Schema({
     name: {
         type: String,
-        unique: true,
         lowercase: true,
         required: true
     },
     description: String,
     brand: String,
     item_type: String,
-    item_number: String,
-    price: Number,
-    weight: Number,
-    stock: Number
+    item_number: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    weight: {
+        type: Number,
+        required: true
+    },
+    stock: {
+        type: Number,
+        required: true
+    }
 })
 
-module.exports = itemSchema
+const modelClass = mongoose.model(
+    'item', itemSchema
+)
+
+module.exports = modelClass

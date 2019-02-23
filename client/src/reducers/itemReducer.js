@@ -11,19 +11,19 @@ export default (state = {}, action) => {
             return {
                 ..._.mapKeys(
                     action.payload,
-                    'id'
+                    '_id'
                 )
             }
 
         case 'GET_ITEM':
             return {
                 ...state,
-                [action.payload.id]: action.payload
+                [action.payload._id]: action.payload
             }
 
         case 'EDIT_ITEM':
             return {
-                [action.payload.id]: action.payload
+                [action.payload._id]: action.payload
             }
 
         case 'DELETE_ITEM':

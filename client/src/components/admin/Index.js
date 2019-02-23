@@ -10,15 +10,18 @@ class Index extends React.Component {
 
     renderItems = () => {
         return this.props.items.map(item => {
-            // if (!item.name) {
-            //     return (
-            //         <div>Loading...</div>
-            //     )
-            // }
+            if (!item._id) {
+                return (
+                    <div className='item'>
+                        No items found
+                    </div>
+                )
+            }
+            console.log(item)
             return (
-                <div className='item' key={item.id}>
-                    <div className=''>
-                        <h5>Item name: <Link to={`/edit/${item.id}`}>{item.name}</Link></h5>
+                <div className='item' key={item._id}>
+                    {/* <div className=''> */}
+                        <h5>Item name: <Link to={`/edit/${item._id}`}>{item.name}</Link></h5>
                         <h5>{item.description ? `Item Description: ${item.description}` : null}</h5>
                         <h5>{item.brand ? `Brand: ${item.brand}` : null}</h5>
                         <h5>{item.item_type ? `Type of Item: ${item.item_type}` : null}</h5>
@@ -27,7 +30,7 @@ class Index extends React.Component {
                         <h5>Weight (oz): {item.weight}</h5>
                         <h5>Stock: {item.stock}</h5>
                         <h5><Link to={`/delete/${item.id}`} className='ui button red'>Delete this item</Link></h5>
-                    </div>
+                    {/* </div> */}
                 </div>
             )
         })
