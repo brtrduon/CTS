@@ -17,20 +17,18 @@ class Index extends React.Component {
                     </div>
                 )
             }
-            console.log(item)
+
             return (
                 <div className='item' key={item._id}>
-                    {/* <div className=''> */}
-                        <h5>Item name: <Link to={`/edit/${item._id}`}>{item.name}</Link></h5>
-                        <h5>{item.description ? `Item Description: ${item.description}` : null}</h5>
-                        <h5>{item.brand ? `Brand: ${item.brand}` : null}</h5>
-                        <h5>{item.item_type ? `Type of Item: ${item.item_type}` : null}</h5>
-                        <h5>Product number: {item.item_number}</h5>
-                        <h5>Price (USD): {item.price}</h5>
-                        <h5>Weight (oz): {item.weight}</h5>
-                        <h5>Stock: {item.stock}</h5>
-                        <h5><Link to={`/delete/${item.id}`} className='ui button red'>Delete this item</Link></h5>
-                    {/* </div> */}
+                    <h5>Item name: <Link to={`/edit/${item._id}`}>{item.name}</Link></h5>
+                    <h5>{item.description ? `Item Description: ${item.description}` : null}</h5>
+                    <h5>{item.brand ? `Brand: ${item.brand}` : null}</h5>
+                    <h5>{item.item_type ? `Type of Item: ${item.item_type}` : null}</h5>
+                    <h5>Product number: {item.item_number}</h5>
+                    <h5>Price (USD): {item.price}</h5>
+                    <h5>Weight (oz): {item.weight}</h5>
+                    <h5>Stock: {item.stock}</h5>
+                    <h5><Link to={`/delete/${item._id}`} className='ui button red'>Delete this item</Link></h5>
                 </div>
             )
         })

@@ -4,7 +4,6 @@ import axios from 'axios'
 const serverURL = 'http://localhost:8000'
 
 export const createItem = formValues => async dispatch => {
-    // const res = await serverURL.post('/items', { ...formValues })
     const res = await axios.post(`${serverURL}/createItem`, { ...formValues })
 
     dispatch({
@@ -23,8 +22,8 @@ export const getItems = () => async dispatch => {
     })
 }
 
-export const getItem = id => async dispatch => {
-    const res = await axios.get(`${serverURL}/getitem/${id}`)
+export const getItem = _id => async dispatch => {
+    const res = await axios.get(`${serverURL}/getitem/${_id}`)
 
     dispatch({
         type: 'GET_ITEM',
@@ -32,8 +31,8 @@ export const getItem = id => async dispatch => {
     })
 }
 
-export const editItem = (formValues, id) => async dispatch => {
-    const res = await axios.patch(`${serverURL}/edititem/${id}`, { ...formValues })
+export const editItem = (formValues, _id) => async dispatch => {
+    const res = await axios.patch(`${serverURL}/edititem/${_id}`, { ...formValues })
 
     dispatch({
         type: 'EDIT_ITEM',
@@ -42,12 +41,12 @@ export const editItem = (formValues, id) => async dispatch => {
     history.push('/')
 }
 
-export const deleteItem = id => async dispatch => {
-    await axios.delete(`${serverURL}/items/${id}`)
+export const deleteItem = _id => async dispatch => {
+    const res = await axios.delete(`${serverURL}/deleteitem/${_id}`)
 
     dispatch({
         type: 'DELETE_ITEM',
-        payload: id
+        payload: res.data
     })
     history.push('/')
 }

@@ -2,8 +2,9 @@ const items = require('./controllers/items')
 
 module.exports = app => {
     app.use((req, res, next) => {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        res.header('Access-Control-Allow-Origin', '*')
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
         next();
       });
 
@@ -14,4 +15,10 @@ module.exports = app => {
     app.get('/getitems', items.getItems)
 
     app.post('/createitem', items.createItem)
+
+    app.get('/getitem/:_id', items.getItem)
+
+    app.patch('/edititem/:_id', items.editItem)
+
+    app.delete('/deleteitem/:_id', items.deleteItem)
 }

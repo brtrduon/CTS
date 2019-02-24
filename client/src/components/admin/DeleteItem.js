@@ -13,13 +13,14 @@ class DeleteItem extends React.Component {
             return <div>Loading...</div>
         }
 
-        const id = this.props.item.id
+        const _id = this.props.item._id
         
         return (
             <div>
-                <h4>{`Are you sure you want to delete ${this.props.item.name}?`}</h4>
+                <h4>{`Are you sure you want to delete product ${this.props.item.name}?`}</h4>
+                <h5>{`(Product ID is ${this.props.item.item_number})`}</h5>
                 <Link to='/' className='ui button primary'>No</Link>
-                <button className='ui button red' onClick={() => this.props.deleteItem(id)}>Yes</button>
+                <button className='ui button red' onClick={() => this.props.deleteItem(_id)}>Yes</button>
             </div>
         )
     }
