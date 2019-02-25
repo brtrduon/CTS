@@ -3,6 +3,10 @@ import axios from 'axios'
 
 const serverURL = 'http://localhost:8000'
 
+export const adminLogin = formValues => async dispatch => {
+    console.log(formValues)
+}
+
 export const createItem = formValues => async dispatch => {
     const res = await axios.post(`${serverURL}/createItem`, { ...formValues })
 

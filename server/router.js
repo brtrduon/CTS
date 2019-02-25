@@ -1,4 +1,5 @@
 const items = require('./controllers/items')
+const admins = require('./controllers/admins')
 
 module.exports = app => {
     app.use((req, res, next) => {
@@ -13,6 +14,10 @@ module.exports = app => {
     })
 
     app.get('/getitems', items.getItems)
+
+    app.post('/adminlogin')
+
+    app.post('/adminsignup', admins.signUp)
 
     app.post('/createitem', items.createItem)
 
