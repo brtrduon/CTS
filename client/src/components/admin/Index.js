@@ -3,23 +3,119 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getItems } from '../../actions'
 
-class Index extends React.Component {
+class AdminIndex extends React.Component {
+    state = {
+        item_type: 'All',
+        brand: 'All'
+    }
+
     componentDidMount() {
         this.props.getItems()
     }
 
-    renderItems = () => {
+    // filter stuff
+    brand = () => {
         return this.props.items.map(item => {
-            if (!item._id) {
+            return (
+                <option key={item._id} value={item.brand}>{item.brand}</option>
+            )
+        })
+    }
+
+    item_type = () => {
+        return this.props.items.map(item => {
+            return (
+                <option key={item._id} value={item.item_type}>{item.item_type}</option>
+            )
+        })
+    }
+
+    onChange = e => {
+        let name = e.target.name
+        let value = e.target.value
+        
+        this.setState({
+            [name]: value
+        })
+    }
+
+    renderFilter = () => {
+        return (
+            <div className='item'>
+                <label>Item Type</label>
+                <select name='item_type' onChange={this.onChange}>
+                    <option value='All'>All</option>
+                    {this.item_type()}
+                </select>
+                <label>Brand</label>
+                <select name='brand' onChange={this.onChange}>
+                    <option value='All'>All</option>
+                    {this.brand()}
+                </select>
+            </div>
+        )
+    }
+
+    // admin page view
+    renderItems = () => {
+        if (this.state.brand === 'All' && this.state.item_type === 'All') {
+            return this.props.items.map(item => {
                 return (
-                    <div className='item'>
-                        No items found
+                    <div className='ui equal width' key={item._id}>
+                        <h5>Item name: <Link to={`/edit/${item._id}`}>{item.name}</Link></h5>
+                        <h5>{item.description ? `Item Description: ${item.description}` : null}</h5>
+                        <h5>{item.brand ? `Brand: ${item.brand}` : null}</h5>
+                        <h5>{item.item_type ? `Type of Item: ${item.item_type}` : null}</h5>
+                        <h5>Product number: {item.item_number}</h5>
+                        <h5>Price (USD): {item.price}</h5>
+                        <h5>Weight (oz): {item.weight}</h5>
+                        <h5>Stock: {item.stock}</h5>
+                        <h5><Link to={`/delete/${item._id}`} className='ui button red'>Delete this item</Link></h5>
                     </div>
                 )
-            }
+            })
+        }
 
-            return (
-                <div className='item' key={item._id}>
+        if (this.state.brand === 'All' && this.state.item_type !== 'All') {
+            return this.props.items.filter(item => 
+                item.item_type === this.state.item_type
+                ).map(item =>
+                    <div className='ui equal width' key={item._id}>
+                        <h5>Item name: <Link to={`/edit/${item._id}`}>{item.name}</Link></h5>
+                        <h5>{item.description ? `Item Description: ${item.description}` : null}</h5>
+                        <h5>{item.brand ? `Brand: ${item.brand}` : null}</h5>
+                        <h5>{item.item_type ? `Type of Item: ${item.item_type}` : null}</h5>
+                        <h5>Product number: {item.item_number}</h5>
+                        <h5>Price (USD): {item.price}</h5>
+                        <h5>Weight (oz): {item.weight}</h5>
+                        <h5>Stock: {item.stock}</h5>
+                        <h5><Link to={`/delete/${item._id}`} className='ui button red'>Delete this item</Link></h5>
+                    </div>
+            )
+        }
+
+        if (this.state.brand !== 'All' && this.state.item_type === 'All') {
+            return this.props.items.filter(item => 
+                item.brand === this.state.brand
+                ).map(item =>
+                    <div className='ui equal width' key={item._id}>
+                        <h5>Item name: <Link to={`/edit/${item._id}`}>{item.name}</Link></h5>
+                        <h5>{item.description ? `Item Description: ${item.description}` : null}</h5>
+                        <h5>{item.brand ? `Brand: ${item.brand}` : null}</h5>
+                        <h5>{item.item_type ? `Type of Item: ${item.item_type}` : null}</h5>
+                        <h5>Product number: {item.item_number}</h5>
+                        <h5>Price (USD): {item.price}</h5>
+                        <h5>Weight (oz): {item.weight}</h5>
+                        <h5>Stock: {item.stock}</h5>
+                        <h5><Link to={`/delete/${item._id}`} className='ui button red'>Delete this item</Link></h5>
+                    </div>
+            )
+        }
+        
+        return this.props.items.filter(item => 
+            item.item_type === this.state.item_type && item.brand === this.state.brand
+            ).map(item =>
+                <div className='ui equal width' key={item._id}>
                     <h5>Item name: <Link to={`/edit/${item._id}`}>{item.name}</Link></h5>
                     <h5>{item.description ? `Item Description: ${item.description}` : null}</h5>
                     <h5>{item.brand ? `Brand: ${item.brand}` : null}</h5>
@@ -30,15 +126,15 @@ class Index extends React.Component {
                     <h5>Stock: {item.stock}</h5>
                     <h5><Link to={`/delete/${item._id}`} className='ui button red'>Delete this item</Link></h5>
                 </div>
-            )
-        })
+        )
     }
 
     render(){
         return (
             <div>
                 <h2>Inventory</h2>
-                <div className='ui celled list'>
+                {this.renderFilter()}
+                <div className='ui container celled grid centered'>
                     {this.renderItems()}
                 </div>
             </div>
@@ -55,4 +151,4 @@ const mapStateToProps = state => {
 export default connect(
     mapStateToProps, 
     { getItems }
-)(Index)
+)(AdminIndex)
