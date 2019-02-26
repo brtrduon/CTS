@@ -14,21 +14,30 @@ class AdminIndex extends React.Component {
     }
 
     // filter stuff
+    item_type = () => {
+        let loop = this.props.items.map(item => {
+            return item.item_type
+        })
+
+        let newArr = Array.from(new Set(loop))
+
+        return newArr.map(item_type => {
+            return <option key={item_type} value={item_type}>{item_type}</option>
+        })
+    }
+    
     brand = () => {
-        return this.props.items.map(item => {
-            return (
-                <option key={item._id} value={item.brand}>{item.brand}</option>
-            )
+        let loop = this.props.items.map(item => {
+            return item.brand
+        })
+
+        let newArr = Array.from(new Set(loop))
+
+        return newArr.map(brand => {
+            return <option key={brand} value={brand}>{brand}</option>
         })
     }
 
-    item_type = () => {
-        return this.props.items.map(item => {
-            return (
-                <option key={item._id} value={item.item_type}>{item.item_type}</option>
-            )
-        })
-    }
 
     onChange = e => {
         let name = e.target.name
