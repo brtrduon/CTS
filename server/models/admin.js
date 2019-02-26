@@ -31,4 +31,8 @@ adminSchema.pre('save', next => {
     })
 })
 
-module.exports = adminSchema
+const modelClass = mongoose.model(
+    'admin', adminSchema
+)
+
+module.exports = modelClass

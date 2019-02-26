@@ -1,4 +1,4 @@
-const jet = require('jwt-simple')
+const jwt = require('jwt-simple')
 const passport = require('passport')
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
@@ -55,3 +55,54 @@ exports.signUp = (req, res, next) => {
         })
     })
 }
+
+// passport
+// everything below this line is only for if admin is trying to login with an existing username in db
+const localOptions = { usernameField: 'username'}
+const localLogin = new LocalStrategy(localOptions, (username, password, next) => {
+    Admin.findOne({ username }, (err, admin) => {
+        if (err) {
+            return next(err)
+        }
+
+        if (!admin) {
+            return next(null, false)
+        }
+
+        admin.comparePassword(password, (err, isMatch) => {
+            if (err) {
+                return next(err)
+            }
+
+            if (!isMatch) {
+                return next(null, false)
+            }
+
+            return next(null, admin)
+        })
+    })
+})
+
+const jwtOptions = {
+    jwtFromRequest: ExtractJwt.fromHeader('authorization'),
+    secretOrKey: config.secret
+}
+
+const jwtLogin = new JwtStrategy(jwtOptions, (payload, next) => {
+    Admin.findById(payload.sub, (err, admin) => {
+        if (err) {
+            return next(err, false)
+        }
+
+        if (admin) {
+            done(null, admin)
+        }
+
+        else {
+            done(null, false)
+        }
+    })
+})
+
+passport.use(jwtLogin)
+passport.use(localLogin)
