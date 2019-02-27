@@ -49,6 +49,7 @@ exports.signUp = (req, res, next) => {
                 return next(err)
             }
 
+            console.log(`admin password is ${admin.password}`)
             res.json({
                 token: tokenForAdmin(admin)
             })
