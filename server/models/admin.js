@@ -31,8 +31,8 @@ adminSchema.pre('save', function(next) {
     })
 })
 
-adminSchema.methods.comparePassword = (candidatePassword, next) => {
-    bcrypt.compare(candidatePassword, this.password, (err, done) => {
+adminSchema.methods.comparePassword = function(candidatePassword, next) {
+    bcrypt.compare(candidatePassword, this.password, function(err, done) {
         if (err) {
             return next(err)
         }

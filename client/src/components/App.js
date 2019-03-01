@@ -1,6 +1,8 @@
 import React from 'react'
 import { Router, Route, Switch } from 'react-router-dom'
 
+import UsersIndex from './users'
+
 import Admin from './admin'
 import AdminIndex from './admin/AdminIndex'
 import AdminLogin from './admin/AdminLogin'
@@ -18,7 +20,8 @@ const App = () => {
                 <div className='ui container'>
                     <Header />
                     <Switch>
-                        <Route path='/' exact component={AdminIndex} />
+                        {/* users */}
+                        <Route path='/' exact component={UsersIndex} />
 
                         {/* admin */}
                         <Route path='/admin' exact component={Admin} />

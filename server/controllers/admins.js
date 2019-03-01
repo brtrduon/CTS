@@ -6,23 +6,23 @@ const LocalStrategy = require('passport-local');
 const config = require('../config')
 const Admin = require('../models/admin')
 
-tokenForAdmin = admin => {
+tokenForAdmin = function(admin) {
     const timestamp = new Date().getTime();
 
     return jwt.encode({ 
-        sub: admin.id, 
+        sub: admin._id, 
         iat: timestamp 
         }, config.secret
     )
 }
 
-exports.signIn = (req, res, next) => {
+exports.signIn = function(req, res, next) {
     res.send({
-        token: tokenForAdmin(req.admin)
+        token: tokenForAdmin(req.user)
     })
 }
 
-exports.signUp = (req, res, next) => {
+exports.signUp = function(req, res, next) {
     const username = req.body.username
     const password = req.body.password
 
@@ -30,7 +30,7 @@ exports.signUp = (req, res, next) => {
         return res.json('Username and/or password cannot be blank')
     }
 
-    Admin.findOne({ username }, (err, existingAdmin) => {
+    Admin.findOne({ username }, function(err, existingAdmin) {
         if (err) {
             return next(err)
         }
@@ -44,12 +44,11 @@ exports.signUp = (req, res, next) => {
             password
         })
 
-        admin.save(err => {
+        admin.save(function(err) {
             if (err) {
                 return next(err)
             }
 
-            console.log(`admin password is ${admin.password}`)
             res.json({
                 token: tokenForAdmin(admin)
             })
@@ -60,8 +59,8 @@ exports.signUp = (req, res, next) => {
 // passport
 // everything below this line is only for if admin is trying to login with an existing username in db
 const localOptions = { usernameField: 'username'}
-const localLogin = new LocalStrategy(localOptions, (username, password, next) => {
-    Admin.findOne({ username }, (err, admin) => {
+const localLogin = new LocalStrategy(localOptions, function(username, password, next) {
+    Admin.findOne({ username }, function(err, admin) {
         if (err) {
             return next(err)
         }
@@ -70,7 +69,7 @@ const localLogin = new LocalStrategy(localOptions, (username, password, next) =>
             return next(null, false)
         }
 
-        admin.comparePassword(password, (err, isMatch) => {
+        admin.comparePassword(password, function(err, isMatch) {
             if (err) {
                 return next(err)
             }
@@ -89,8 +88,8 @@ const jwtOptions = {
     secretOrKey: config.secret
 }
 
-const jwtLogin = new JwtStrategy(jwtOptions, (payload, next) => {
-    Admin.findById(payload.sub, (err, admin) => {
+const jwtLogin = new JwtStrategy(jwtOptions, function(payload, next) {
+    Admin.findById(payload.sub, function(err, admin) {
         if (err) {
             return next(err, false)
         }

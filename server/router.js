@@ -1,11 +1,14 @@
+const passport = require('passport')
 const items = require('./controllers/items')
 const admins = require('./controllers/admins')
+
+const requireSignIn = passport.authenticate('local', { session: false })
 
 module.exports = app => {
     app.use((req, res, next) => {
         res.header('Access-Control-Allow-Origin', '*')
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE')
         next();
       });
 
@@ -15,7 +18,7 @@ module.exports = app => {
 
     app.get('/getitems', items.getItems)
 
-    app.post('/adminlogin')
+    app.post('/adminsignin', requireSignIn, admins.signIn)
 
     app.post('/adminsignup', admins.signUp)
 

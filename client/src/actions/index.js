@@ -4,7 +4,14 @@ import axios from 'axios'
 const serverURL = 'http://localhost:8000'
 
 export const adminLogin = formValues => async dispatch => {
-    console.log(formValues)
+    const res = await axios.post(`${serverURL}/adminsignin`, { ...formValues })
+
+    dispatch({
+        type: 'ADMIN_LOGIN',
+        payload: res.data
+    })
+    localStorage.setItem('cts_admin_token', res.data.token)
+    history.push('/admin/index')
 }
 
 export const createItem = formValues => async dispatch => {
