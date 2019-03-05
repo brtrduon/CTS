@@ -7,7 +7,7 @@ const config = require('../config')
 const User = require('../models/user')
 
 tokenForUser = function(user) {
-    const timestamp = new Date().getTime();
+    const timestamp = new Date().getTime()
 
     return jwt.encode({ 
         sub: user._id, 

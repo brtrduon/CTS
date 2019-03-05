@@ -7,7 +7,7 @@ const config = require('../config')
 const Admin = require('../models/admin')
 
 tokenForAdmin = function(admin) {
-    const timestamp = new Date().getTime();
+    const timestamp = new Date().getTime()
 
     return jwt.encode({ 
         sub: admin._id, 

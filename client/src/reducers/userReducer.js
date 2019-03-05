@@ -1,12 +1,6 @@
-import isEmpty from 'lodash/isEmpty'
-
-const initialState = {
-    auth: false,
-}
-
-export default (state = initialState, action) => {
+export default (state = {}, action) => {
     switch(action.type) {
-        case 'ADMIN_AUTH':
+        case 'USER_AUTH':
             return {
                 ...state,
                 auth: true
