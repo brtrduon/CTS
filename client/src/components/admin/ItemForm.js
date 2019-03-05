@@ -19,7 +19,7 @@ class ItemForm extends React.Component {
         return (
             <div className={className}>
                 <label>{label}</label>
-                <input {...input} autoComplete='off' type={type} />
+                <input {...input} autoComplete='on' type={type} />
                 {this.renderError(meta)}
             </div>
         )

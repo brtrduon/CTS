@@ -1,16 +1,41 @@
-import history from '../history'
 import axios from 'axios'
+import history from '../history'
 
 const serverURL = 'http://localhost:8000'
 
 export const adminLogin = formValues => async dispatch => {
-    const res = await axios.post(`${serverURL}/adminsignin`, { ...formValues })
+    const onSuccess = res => {
+        console.log(res)
+        dispatch({
+            type: 'ADMIN_AUTH',
+        })
+        localStorage.setItem('jwtToken', res.data.token)
+        history.push('/admin/index')
+    }
+
+    const onError = error => {
+        console.log(error)
+        dispatch({
+            type: 'AUTH_ERROR',
+            payload: error
+        })
+    }
+
+    try {
+        const success = await axios.post(`${serverURL}/adminsignin`, { ...formValues })
+        return onSuccess(success)
+    } catch(error) {
+        return onError(error)
+    }
+}
+
+export const adminSignUp = formValues => async dispatch => {
+    const res = await axios.post(`${serverURL}/adminsignup`, { ...formValues })
 
     dispatch({
-        type: 'ADMIN_LOGIN',
+        type: 'ADMIN_AUTH',
         payload: res.data
     })
-    localStorage.setItem('cts_admin_token', res.data.token)
     history.push('/admin/index')
 }
 

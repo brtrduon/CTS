@@ -3,9 +3,10 @@ import { Router, Route, Switch } from 'react-router-dom'
 
 import UsersIndex from './users'
 
-import Admin from './admin'
+import AdminLogin from './admin'
+import Auth from './admin/auth'
+import AdminSignUp from './admin/AdminSignUp'
 import AdminIndex from './admin/AdminIndex'
-import AdminLogin from './admin/AdminLogin'
 import CreateItem from './admin/CreateItem'
 import DeleteItem from './admin/DeleteItem'
 import EditItem from './admin/EditItem'
@@ -24,9 +25,9 @@ const App = () => {
                         <Route path='/' exact component={UsersIndex} />
 
                         {/* admin */}
-                        <Route path='/admin' exact component={Admin} />
+                        <Route path='/admin' exact component={AdminLogin} />
+                        <Route path='/admin/iusrfb38e^8623e' exact component={AdminSignUp} />
                         <Route path='/admin/index' exact component={AdminIndex} />
-                        <Route path='/admin/login' exact component={AdminLogin} />
                         <Route path='/create' exact component={CreateItem} />
                         <Route path='/edit/:id' exact component={EditItem} />
                         <Route path='/delete/:id' exact component={DeleteItem} />

@@ -1,6 +1,7 @@
 const passport = require('passport')
 const items = require('./controllers/items')
 const admins = require('./controllers/admins')
+const users = require('./controllers/users')
 
 const requireSignIn = passport.authenticate('local', { session: false })
 
@@ -29,4 +30,8 @@ module.exports = app => {
     app.patch('/edititem/:_id', items.editItem)
 
     app.delete('/deleteitem/:_id', items.deleteItem)
+
+    app.post('/signin', requireSignIn, users.signIn)
+
+    app.post('/signup', users.signUp)
 }
