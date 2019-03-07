@@ -50,6 +50,10 @@ const validate = formValues => {
         errors.username = 'Username is required'
     }
 
+    if (formValues.username < 4) {
+        errors.username='Username must be at least 4 characters'
+    }
+
     if (!formValues.email) {
         errors.email = 'Email is required'
     }

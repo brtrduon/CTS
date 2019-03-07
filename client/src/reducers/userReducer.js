@@ -6,13 +6,6 @@ export default (state = {}, action) => {
                 auth: true
             }
 
-        // if invalid login info is given
-        case 'AUTH_ERROR':
-            return {
-                ...state,
-                error: action.payload
-            }
-
         default:
             return state
     }
