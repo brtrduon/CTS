@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getItems } from '../../actions'
 
-class UsersIndex extends React.Component {
+class UserIndex extends React.Component {
     state = {
         item_type: 'All',
         brand: 'All'
@@ -161,4 +161,4 @@ const mapStateToProps = state => {
 export default connect(
     mapStateToProps, 
     { getItems }
-)(UsersIndex)
+)(UserIndex)
