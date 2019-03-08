@@ -18,6 +18,7 @@ exports.createItem = (req, res, next) => {
     let price = req.body.price
     let weight = req.body.weight
     let stock = req.body.stock
+    let img = req.body.img
     
     let item = new Item({
         name: name,
@@ -27,7 +28,8 @@ exports.createItem = (req, res, next) => {
         item_number: item_number,
         price: price,
         weight: weight,
-        stock: stock
+        stock: stock,
+        img: img
     })
 
     item.save(err => {

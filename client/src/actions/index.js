@@ -40,13 +40,14 @@ export const adminSignUp = formValues => async dispatch => {
 }
 
 export const createItem = formValues => async dispatch => {
-    const res = await axios.post(`${serverURL}/createItem`, { ...formValues })
+    console.log(formValues)
+    // const res = await axios.post(`${serverURL}/createItem`, { ...formValues })
 
-    dispatch({
-        type: 'CREATE_ITEM',
-        payload: res.data
-    })
-    history.push('/')
+    // dispatch({
+    //     type: 'CREATE_ITEM',
+    //     payload: res.data
+    // })
+    // history.push('/')
 }
 
 export const getItems = () => async dispatch => {
