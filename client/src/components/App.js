@@ -6,7 +6,7 @@ import UserSignIn from './users/UserSignIn'
 import UserSignUp from './users/UserSignUp'
 
 import AdminLogin from './admin'
-import Auth from './admin/auth'
+// import RequireAuth from './admin/auth'
 import AdminSignUp from './admin/AdminSignUp'
 import AdminIndex from './admin/AdminIndex'
 import CreateItem from './admin/CreateItem'

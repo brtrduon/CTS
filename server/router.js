@@ -2,8 +2,11 @@ const passport = require('passport')
 const items = require('./controllers/items')
 const admins = require('./controllers/admins')
 const users = require('./controllers/users')
-
 const requireSignIn = passport.authenticate('local', { session: false })
+
+const multer = require('multer')
+const upload = multer({dest: 'uploads/'})
+
 
 module.exports = app => {
     app.use((req, res, next) => {
@@ -19,11 +22,11 @@ module.exports = app => {
 
     app.get('/getitems', items.getItems)
 
-    app.post('/adminsignin', requireSignIn, admins.signIn)
+    app.post('/adminsignin', admins.signIn)
 
     app.post('/adminsignup', admins.signUp)
 
-    app.post('/createitem', items.createItem)
+    app.post('/createitem', upload.single('img'), items.createItem)
 
     app.get('/getitem/:_id', items.getItem)
 

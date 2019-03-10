@@ -4,49 +4,34 @@ import history from '../history'
 const serverURL = 'http://localhost:8000'
 
 export const adminLogin = formValues => async dispatch => {
-    const onSuccess = res => {
-        console.log(res)
-        dispatch({
-            type: 'ADMIN_AUTH',
-        })
-        localStorage.setItem('jwtToken', res.data.token)
-        history.push('/admin/index')
-    }
+    const res = await axios.post(`${serverURL}/adminsignin`, { ...formValues })
 
-    const onError = error => {
-        console.log(error)
-        dispatch({
-            type: 'AUTH_ERROR',
-            payload: error
-        })
-    }
-
-    try {
-        const success = await axios.post(`${serverURL}/adminsignin`, { ...formValues })
-        return onSuccess(success)
-    } catch(error) {
-        return onError(error)
-    }
+    dispatch({
+        type: 'ADMIN_LOGIN',
+        payload: res.data
+    })
+    history.push('/admin/index')
 }
 
 export const adminSignUp = formValues => async dispatch => {
     const res = await axios.post(`${serverURL}/adminsignup`, { ...formValues })
 
     dispatch({
-        type: 'ADMIN_AUTH',
+        type: 'ADMIN_LOGIN',
         payload: res.data
     })
+    localStorage.setItem('jwtToken', res.data.token)
     history.push('/admin/index')
 }
 
 export const createItem = formValues => async dispatch => {
     console.log(formValues)
-    // const res = await axios.post(`${serverURL}/createItem`, { ...formValues })
+    const res = await axios.post(`${serverURL}/createItem`, { ...formValues })
 
-    // dispatch({
-    //     type: 'CREATE_ITEM',
-    //     payload: res.data
-    // })
+    dispatch({
+        type: 'CREATE_ITEM',
+        payload: res.data
+    })
     // history.push('/')
 }
 
