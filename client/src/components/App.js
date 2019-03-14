@@ -6,7 +6,7 @@ import UserSignIn from './users/UserSignIn'
 import UserSignUp from './users/UserSignUp'
 
 import AdminLogin from './admin'
-// import RequireAuth from './admin/auth'
+import RequireAuth from './admin/auth'
 import AdminSignUp from './admin/AdminSignUp'
 import AdminIndex from './admin/AdminIndex'
 import CreateItem from './admin/CreateItem'
@@ -31,10 +31,10 @@ const App = () => {
                         {/* admin */}
                         <Route path='/admin' exact component={AdminLogin} />
                         <Route path='/admin/iusrfb38e^8623e' exact component={AdminSignUp} />
-                        <Route path='/admin/index' exact component={AdminIndex} />
-                        <Route path='/create' exact component={CreateItem} />
-                        <Route path='/edit/:id' exact component={EditItem} />
-                        <Route path='/delete/:id' exact component={DeleteItem} />
+                        <Route path='/admin/index' exact component={RequireAuth(AdminIndex)} />
+                        <Route path='/create' exact component={RequireAuth(CreateItem)} />
+                        <Route path='/edit/:id' exact component={RequireAuth(EditItem)} />
+                        <Route path='/delete/:id' exact component={RequireAuth(DeleteItem)} />
                     </Switch>
                 </div>
             </Router>

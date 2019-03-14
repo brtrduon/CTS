@@ -5,10 +5,10 @@ const serverURL = 'http://localhost:8000'
 
 export const adminLogin = formValues => async dispatch => {
     const res = await axios.post(`${serverURL}/adminsignin`, { ...formValues })
-
+    
     dispatch({
         type: 'ADMIN_LOGIN',
-        payload: res.data
+        payload: res.data.token
     })
     history.push('/admin/index')
 }
@@ -18,10 +18,17 @@ export const adminSignUp = formValues => async dispatch => {
 
     dispatch({
         type: 'ADMIN_LOGIN',
-        payload: res.data
+        payload: res.data.token
     })
     localStorage.setItem('jwtToken', res.data.token)
     history.push('/admin/index')
+}
+
+export const adminSignOut = () => async dispatch => {
+    await dispatch({
+        type: 'ADMIN_LOGOUT'
+    })
+    history.push('/admin')
 }
 
 export const createItem = formValues => async dispatch => {
