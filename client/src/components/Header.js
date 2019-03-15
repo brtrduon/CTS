@@ -2,10 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { adminSignOut } from '../actions'
+import { userSignOut } from '../actions/UserActions'
 
 class Header extends React.Component {
-    onClick = () => {
+    adminSignOut = () => {
         this.props.adminSignOut()
+    }
+
+    userSignOut = () => {
+        this.props.userSignOut()
     }
 
     renderAdminAuth = () => {
@@ -14,12 +19,21 @@ class Header extends React.Component {
                 <Link className='item' to='/'>Home</Link>
                 <Link className='item' to='/create'>Create Item</Link>
                 {/* <Link className='item' to='/adminsignout'>Sign Out</Link> */}
-                <button className='item' onClick={this.onClick}>Sign Out</button>
+                <button className='item' onClick={this.adminSignOut}>Sign Out</button>
             </div>
         )
     }
 
-    renderNoAuth = () => {
+    renderUser = () => {
+        if (this.props.userAuth) {
+            return (
+                <div className='ui secondary pointing menu'>
+                     <Link className='item' to='/'>Home</Link>
+                     <button className='item' onClick={this.userSignOut}>Sign Out</button>
+                </div>
+            )
+        }
+
         return (
             <div className='ui secondary pointing menu'>
                 <Link className='item' to='/'>Home</Link>
@@ -31,18 +45,19 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div>{this.props.auth ? this.renderAdminAuth() : this.renderNoAuth()}</div>
+            <div>{this.props.auth ? this.renderAdminAuth() : this.renderUser()}</div>
         )
     }
 }
 
 const mapStateToProps = state => {
     return {
-        auth: state.admin.auth
+        auth: state.admin.auth,
+        userAuth: state.user.auth
     }
 }
 
 export default connect(
     mapStateToProps,
-    { adminSignOut }
+    { adminSignOut, userSignOut },
 )(Header)
