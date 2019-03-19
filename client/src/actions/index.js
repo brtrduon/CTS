@@ -29,10 +29,19 @@ export const adminSignOut = () => async dispatch => {
         type: 'ADMIN_LOGOUT'
     })
     history.push('/admin')
+
+}
+
+export const getUsers = () => async dispatch => {
+    const res = await axios.get(`${serverURL}/getusers`)
+
+    dispatch({
+        type: 'GET_USERS',
+        payload: res.data
+    })
 }
 
 export const createItem = formValues => async dispatch => {
-    console.log(formValues)
     const res = await axios.post(`${serverURL}/createItem`, { ...formValues })
 
     dispatch({

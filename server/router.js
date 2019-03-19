@@ -26,6 +26,8 @@ module.exports = app => {
 
     app.post('/adminsignup', admins.signUp)
 
+    app.get('/getusers', admins.getUsers)
+
     app.post('/createitem', upload.single('img'), items.createItem)
 
     app.get('/getitem/:_id', items.getItem)

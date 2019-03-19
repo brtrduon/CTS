@@ -9,6 +9,10 @@ class AdminIndex extends React.Component {
         brand: 'All'
     }
 
+    componentWillUnmount() {
+        localStorage.setItem('adminState', this.props.auth)
+    }
+
     componentDidMount() {
         this.props.getItems()
     }
@@ -153,7 +157,8 @@ class AdminIndex extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        items: Object.values(state.item)
+        items: Object.values(state.item),
+        auth: state.admin.auth
     }
 }
 

@@ -7,6 +7,7 @@ exports.getItems = (req, res, next) => {
         if (err) {
             return next(err)
         }
+        
         res.json(items)
     })
 }

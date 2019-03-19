@@ -16,8 +16,10 @@ class Header extends React.Component {
     renderAdminAuth = () => {
         return (
             <div className='ui secondary pointing menu'>
-                <Link className='item' to='/'>Home</Link>
-                <Link className='item' to='/create'>Create Item</Link>
+                <Link className='item' to='/admin/index'>Admin Home</Link>
+                <Link className='item' to='/admin/index'>View Items</Link>
+                <Link className='item' to='/admin/users'>View Users</Link>
+                <Link className='item' to='/admin/createitem'>Create Item</Link>
                 {/* <Link className='item' to='/adminsignout'>Sign Out</Link> */}
                 <button className='item' onClick={this.adminSignOut}>Sign Out</button>
             </div>

@@ -1,6 +1,7 @@
 const jwt = require('jwt-simple')
 const config = require('../config')
 const Admin = require('../models/admin')
+const User = require('../models/user')
 
 tokenForAdmin = function(admin) {
     const timestamp = new Date().getTime()
@@ -74,5 +75,15 @@ exports.signUp = function(req, res, next) {
                 token: tokenForAdmin(admin)
             })
         })
+    })
+}
+
+exports.getUsers = (req, res, next) => {
+    User.find({}, (err, users) => {
+        if (err) {
+            return next(err)
+        }
+
+        res.json(users)
     })
 }

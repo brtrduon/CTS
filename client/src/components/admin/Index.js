@@ -4,6 +4,10 @@ import LoginForm from '../LoginForm'
 import { adminLogin } from '../../actions'
 
 class AdminLogin extends React.Component {
+    componentWillUnmount() {
+        localStorage.setItem('adminState', this.props.auth)
+    }
+
     onSubmit = formValues => {
         this.props.adminLogin(formValues)
     }
@@ -18,4 +22,13 @@ class AdminLogin extends React.Component {
     }
 }
 
-export default connect(null, { adminLogin })(AdminLogin)
+const mapStateToProps = state => {
+    return {
+        auth: state.admin.auth
+    }
+}
+
+export default connect(
+    mapStateToProps, 
+    { adminLogin })
+(AdminLogin)

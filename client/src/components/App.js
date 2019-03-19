@@ -12,6 +12,7 @@ import AdminIndex from './admin/AdminIndex'
 import CreateItem from './admin/CreateItem'
 import DeleteItem from './admin/DeleteItem'
 import EditItem from './admin/EditItem'
+import AdminUsersView from './admin/users'
 
 import Header from './Header'
 import history from '../history';
@@ -32,9 +33,10 @@ const App = () => {
                         <Route path='/admin' exact component={AdminLogin} />
                         <Route path='/admin/iusrfb38e^8623e' exact component={AdminSignUp} />
                         <Route path='/admin/index' exact component={RequireAuth(AdminIndex)} />
-                        <Route path='/create' exact component={RequireAuth(CreateItem)} />
-                        <Route path='/edit/:id' exact component={RequireAuth(EditItem)} />
-                        <Route path='/delete/:id' exact component={RequireAuth(DeleteItem)} />
+                        <Route path='/admin/users' exact component={RequireAuth(AdminUsersView)}/>
+                        <Route path='/admin/createitem' exact component={RequireAuth(CreateItem)} />
+                        <Route path='/admin/edit/:id' exact component={RequireAuth(EditItem)} />
+                        <Route path='/admin/delete/:id' exact component={RequireAuth(DeleteItem)} />
                     </Switch>
                 </div>
             </Router>
