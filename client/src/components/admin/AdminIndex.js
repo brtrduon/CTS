@@ -9,9 +9,9 @@ class AdminIndex extends React.Component {
         brand: 'All'
     }
 
-    componentWillUnmount() {
-        localStorage.setItem('adminState', this.props.auth)
-    }
+    // componentWillUnmount() {
+    //     localStorage.setItem('adminState', this.props.auth)
+    // }
 
     componentDidMount() {
         this.props.getItems()
