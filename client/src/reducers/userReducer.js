@@ -1,5 +1,5 @@
 const initialState = {
-    auth: false,
+    auth: localStorage.userState
 }
 
 export default (state = initialState, action) => {
@@ -7,13 +7,13 @@ export default (state = initialState, action) => {
         case 'USER_LOGIN':
             return {
                 ...state,
-                auth: true
+                auth: localStorage.userState
             }
 
         case 'USER_LOGOUT':
             return {
                 ...state,
-                auth: false
+                auth: localStorage.userState
             }
 
         default:

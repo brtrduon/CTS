@@ -27,7 +27,7 @@ class Header extends React.Component {
     }
 
     renderUser = () => {
-        if (this.props.userAuth) {
+        if (this.props.userAuth === 'true') {
             return (
                 <div className='ui secondary pointing menu'>
                      <Link className='item' to='/'>Home</Link>
