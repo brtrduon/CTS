@@ -33,5 +33,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps, 
-    { adminLogin })
-(AdminLogin)
+    { adminLogin }
+)(AdminLogin)

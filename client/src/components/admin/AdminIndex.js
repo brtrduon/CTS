@@ -75,7 +75,7 @@ class AdminIndex extends React.Component {
             return this.props.items.map(item => {
                 return (
                     <div className='ui equal width' key={item._id}>
-                        <h5>Item name: <Link to={`/edit/${item._id}`}>{item.name}</Link></h5>
+                        <h5>Item name: <Link to={`/admin/edit/${item._id}`}>{item.name}</Link></h5>
                         <h5>{item.description ? `Item Description: ${item.description}` : null}</h5>
                         <h5>{item.brand ? `Brand: ${item.brand}` : null}</h5>
                         <h5>{item.item_type ? `Type of Item: ${item.item_type}` : null}</h5>
@@ -83,7 +83,7 @@ class AdminIndex extends React.Component {
                         <h5>Price (USD): {item.price}</h5>
                         <h5>Weight (oz): {item.weight}</h5>
                         <h5>Stock: {item.stock}</h5>
-                        <h5><Link to={`/delete/${item._id}`} className='ui button red'>Delete this item</Link></h5>
+                        <h5><Link to={`/admin/delete/${item._id}`} className='ui button red'>Delete this item</Link></h5>
                     </div>
                 )
             })
@@ -94,7 +94,7 @@ class AdminIndex extends React.Component {
                 item.item_type === this.state.item_type
                 ).map(item =>
                     <div className='ui equal width' key={item._id}>
-                        <h5>Item name: <Link to={`/edit/${item._id}`}>{item.name}</Link></h5>
+                        <h5>Item name: <Link to={`/admin/edit/${item._id}`}>{item.name}</Link></h5>
                         <h5>{item.description ? `Item Description: ${item.description}` : null}</h5>
                         <h5>{item.brand ? `Brand: ${item.brand}` : null}</h5>
                         <h5>{item.item_type ? `Type of Item: ${item.item_type}` : null}</h5>
@@ -102,7 +102,7 @@ class AdminIndex extends React.Component {
                         <h5>Price (USD): {item.price}</h5>
                         <h5>Weight (oz): {item.weight}</h5>
                         <h5>Stock: {item.stock}</h5>
-                        <h5><Link to={`/delete/${item._id}`} className='ui button red'>Delete this item</Link></h5>
+                        <h5><Link to={`/admin/delete/${item._id}`} className='ui button red'>Delete this item</Link></h5>
                     </div>
             )
         }
@@ -112,7 +112,7 @@ class AdminIndex extends React.Component {
                 item.brand === this.state.brand
                 ).map(item =>
                     <div className='ui equal width' key={item._id}>
-                        <h5>Item name: <Link to={`/edit/${item._id}`}>{item.name}</Link></h5>
+                        <h5>Item name: <Link to={`/admin/edit/${item._id}`}>{item.name}</Link></h5>
                         <h5>{item.description ? `Item Description: ${item.description}` : null}</h5>
                         <h5>{item.brand ? `Brand: ${item.brand}` : null}</h5>
                         <h5>{item.item_type ? `Type of Item: ${item.item_type}` : null}</h5>
@@ -120,7 +120,7 @@ class AdminIndex extends React.Component {
                         <h5>Price (USD): {item.price}</h5>
                         <h5>Weight (oz): {item.weight}</h5>
                         <h5>Stock: {item.stock}</h5>
-                        <h5><Link to={`/delete/${item._id}`} className='ui button red'>Delete this item</Link></h5>
+                        <h5><Link to={`/admin/delete/${item._id}`} className='ui button red'>Delete this item</Link></h5>
                     </div>
             )
         }
@@ -129,7 +129,7 @@ class AdminIndex extends React.Component {
             item.item_type === this.state.item_type && item.brand === this.state.brand
             ).map(item =>
                 <div className='ui equal width' key={item._id}>
-                    <h5>Item name: <Link to={`/edit/${item._id}`}>{item.name}</Link></h5>
+                    <h5>Item name: <Link to={`/admin/edit/${item._id}`}>{item.name}</Link></h5>
                     <h5>{item.description ? `Item Description: ${item.description}` : null}</h5>
                     <h5>{item.brand ? `Brand: ${item.brand}` : null}</h5>
                     <h5>{item.item_type ? `Type of Item: ${item.item_type}` : null}</h5>
@@ -137,7 +137,7 @@ class AdminIndex extends React.Component {
                     <h5>Price (USD): {item.price}</h5>
                     <h5>Weight (oz): {item.weight}</h5>
                     <h5>Stock: {item.stock}</h5>
-                    <h5><Link to={`/delete/${item._id}`} className='ui button red'>Delete this item</Link></h5>
+                    <h5><Link to={`/admin/delete/${item._id}`} className='ui button red'>Delete this item</Link></h5>
                 </div>
         )
     }

@@ -4,6 +4,7 @@ import { Router, Route, Switch } from 'react-router-dom'
 import UserIndex from './users'
 import UserSignIn from './users/UserSignIn'
 import UserSignUp from './users/UserSignUp'
+import Items from './users/Items'
 
 import AdminLogin from './admin'
 import RequireAuth from './admin/auth'
@@ -28,6 +29,7 @@ const App = () => {
                         <Route path='/' exact component={UserIndex} />
                         <Route path='/signup' exact component={UserSignUp} />
                         <Route path='/signin' exact component={UserSignIn} />
+                        <Route path='/item/:id' exact component={Items} />
 
                         {/* admin */}
                         <Route path='/admin' exact component={AdminLogin} />

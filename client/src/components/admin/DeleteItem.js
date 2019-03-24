@@ -19,7 +19,7 @@ class DeleteItem extends React.Component {
             <div>
                 <h4>{`Are you sure you want to delete product ${this.props.item.name}?`}</h4>
                 <h5>{`(Product ID is ${this.props.item.item_number})`}</h5>
-                <Link to='/' className='ui button primary'>No</Link>
+                <Link to='/admin/index' className='ui button primary'>No</Link>
                 <button className='ui button red' onClick={() => this.props.deleteItem(_id)}>Yes</button>
             </div>
         )

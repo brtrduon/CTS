@@ -32,3 +32,12 @@ export const userSignOut = () => async dispatch => {
     })
     history.push('/')
 }
+
+export const getItem = _id => async dispatch => {
+    const res = await axios.get(`${serverURL}/getitem/${_id}`)
+
+    dispatch({
+        type: 'GET_ITEM',
+        payload: res.data
+    })
+}
