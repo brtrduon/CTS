@@ -47,7 +47,7 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div>{this.props.auth ? this.renderAdminAuth() : this.renderUser()}</div>
+            <div>{this.props.auth === 'true' ? this.renderAdminAuth() : this.renderUser()}</div>
         )
     }
 }

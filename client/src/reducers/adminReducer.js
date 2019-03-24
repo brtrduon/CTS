@@ -1,5 +1,5 @@
 const initialState = {
-    auth: false,
+    auth: localStorage.adminState
 }
 
 export default (state = initialState, action) => {
@@ -7,13 +7,13 @@ export default (state = initialState, action) => {
         case 'ADMIN_LOGIN':
             return {
                 ...state,
-                auth: true
+                auth: localStorage.adminState
             }
 
         case 'ADMIN_LOGOUT':
             return {
                 ...state,
-                auth: false
+                auth: localStorage.adminState
             }
 
         // if invalid login info is given

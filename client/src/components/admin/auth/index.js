@@ -4,8 +4,8 @@ import history from '../../../history'
 
 export default ComposedComponent => {
     class RequireAuth extends React.Component {
-        componentWillMount() {
-            if (!this.props.auth || this.props.auth === false) {
+        componentDidMount() {
+            if (this.props.auth !== 'true') {
                 history.push('/admin')
             }
         }

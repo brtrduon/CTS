@@ -9,7 +9,6 @@ class AdminUsersView extends React.Component {
 
     renderUsers = () => {
         return this.props.users.map(user => {
-            console.log(user)
             return (
                 <div className='ui equal width' key={user._id}>
                     <h5>Username: {user.username}</h5>

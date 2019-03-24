@@ -1,11 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import LoginForm from '../LoginForm'
+import history from '../../history'
 import { adminLogin } from '../../actions'
 
 class AdminLogin extends React.Component {
-    componentWillUnmount() {
-        localStorage.setItem('adminState', this.props.auth)
+    componentDidMount() {
+        if (this.props.auth === 'true') {
+            history.push('/admin/index')
+        }
     }
 
     onSubmit = formValues => {

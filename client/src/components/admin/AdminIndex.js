@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import history from '../../history'
 import { getItems } from '../../actions'
 
 class AdminIndex extends React.Component {
@@ -9,11 +10,10 @@ class AdminIndex extends React.Component {
         brand: 'All'
     }
 
-    // componentWillUnmount() {
-    //     localStorage.setItem('adminState', this.props.auth)
-    // }
-
     componentDidMount() {
+        if (this.props.auth === "false") {
+            history.push('/admin')
+        }
         this.props.getItems()
     }
 
