@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ItemForm from './ItemForm'
-import { createItem } from '../../actions'
+import { createItem } from '../../../actions'
 
 class CreateItem extends React.Component {
     onSubmit = formValues => {

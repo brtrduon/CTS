@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getItem, deleteItem } from '../../actions'
+import { getItem, deleteItem } from '../../../actions'
 
 class DeleteItem extends React.Component {
     componentDidMount() {

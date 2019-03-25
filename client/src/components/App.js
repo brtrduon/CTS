@@ -1,18 +1,21 @@
 import React from 'react'
 import { Router, Route, Switch } from 'react-router-dom'
 
+// user functionality
 import UserIndex from './users'
 import UserSignIn from './users/UserSignIn'
 import UserSignUp from './users/UserSignUp'
 import Items from './users/Items'
 
+// admin functionality
 import AdminLogin from './admin'
 import RequireAuth from './admin/auth'
 import AdminSignUp from './admin/AdminSignUp'
-import AdminIndex from './admin/AdminIndex'
-import CreateItem from './admin/CreateItem'
-import DeleteItem from './admin/DeleteItem'
-import EditItem from './admin/EditItem'
+import AdminIndex from './admin/items'
+import CreateItem from './admin/items/CreateItem'
+import DeleteItem from './admin/items/DeleteItem'
+import EditItem from './admin/items/EditItem'
+
 import AdminUsersView from './admin/users'
 
 import Header from './Header'

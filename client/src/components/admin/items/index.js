@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import history from '../../history'
-import { getItems } from '../../actions'
+import history from '../../../history'
+import { getItems } from '../../../actions'
 
 class AdminIndex extends React.Component {
     state = {

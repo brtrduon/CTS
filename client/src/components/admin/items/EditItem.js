@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import _ from 'lodash'
-import { getItem, editItem } from '../../actions'
+import { getItem, editItem } from '../../../actions'
 import ItemForm from './ItemForm'
 
 class EditItem extends React.Component {
