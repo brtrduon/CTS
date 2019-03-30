@@ -41,3 +41,13 @@ export const getItem = _id => async dispatch => {
         payload: res.data
     })
 }
+
+export const addToCart = _id => async dispatch => {
+    const res = await axios.post(`${serverURL}/addtocart/${_id}`)
+
+    await dispatch({
+        type: 'ADD_TO_CART',
+        payload: res.data
+    })
+    history.push('/')
+}

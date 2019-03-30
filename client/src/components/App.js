@@ -6,16 +6,20 @@ import UserIndex from './users'
 import UserSignIn from './users/UserSignIn'
 import UserSignUp from './users/UserSignUp'
 import Items from './users/Items'
+import AddToCart from './users/cart/AddToCart'
 
 // admin functionality
 import AdminLogin from './admin'
 import RequireAuth from './admin/auth'
 import AdminSignUp from './admin/AdminSignUp'
+
+// admin items functionality
 import AdminIndex from './admin/items'
 import CreateItem from './admin/items/CreateItem'
 import DeleteItem from './admin/items/DeleteItem'
 import EditItem from './admin/items/EditItem'
 
+// admin users functionality
 import AdminUsersView from './admin/users'
 
 import Header from './Header'
@@ -33,6 +37,7 @@ const App = () => {
                         <Route path='/signup' exact component={UserSignUp} />
                         <Route path='/signin' exact component={UserSignIn} />
                         <Route path='/item/:id' exact component={Items} />
+                        <Route path='/addtocart/:id' exact component={AddToCart} />
 
                         {/* admin */}
                         <Route path='/admin' exact component={AdminLogin} />

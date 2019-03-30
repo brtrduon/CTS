@@ -2,6 +2,7 @@ const passport = require('passport')
 const items = require('./controllers/items')
 const admins = require('./controllers/admins')
 const users = require('./controllers/users')
+const cart = require('./controllers/cart')
 const requireSignIn = passport.authenticate('local', { session: false })
 
 const multer = require('multer')
@@ -39,4 +40,6 @@ module.exports = app => {
     app.post('/signin', requireSignIn, users.signIn)
 
     app.post('/signup', users.signUp)
+
+    app.post('/addtocart/:_id', cart.addToCart)
 }

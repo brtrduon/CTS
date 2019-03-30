@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { getItem } from '../../actions/UserActions'
 
 class Items extends React.Component{
@@ -25,6 +26,7 @@ class Items extends React.Component{
                     <h5>Price (USD): {item.price}</h5>
                     <h5>Weight (oz): {item.weight}</h5>
                     <h5>Stock: {item.stock}</h5>
+                    {this.props.userAuth === 'true' ? <Link className='ui button' to={`/addtocart/${item._id}`}>Add to Cart</Link> : null}
                 </div>
             </div>
         )
@@ -33,7 +35,8 @@ class Items extends React.Component{
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        item: state.item[ownProps.match.params.id]
+        item: state.item[ownProps.match.params.id],
+        userAuth: state.user.auth
     }
 }
 

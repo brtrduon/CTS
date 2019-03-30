@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getItems } from '../../actions'
+import { addToCart } from '../../actions/UserActions'
 
 class UserIndex extends React.Component {
     state = {
@@ -65,7 +66,6 @@ class UserIndex extends React.Component {
         )
     }
 
-    // admin page view
     renderItems = () => {
         if (this.state.brand === 'All' && this.state.item_type === 'All') {
             return this.props.items.map(item => {
@@ -79,6 +79,7 @@ class UserIndex extends React.Component {
                         <h5>Price (USD): {item.price}</h5>
                         <h5>Weight (oz): {item.weight}</h5>
                         <h5>Stock: {item.stock}</h5>
+                        {this.props.userAuth === 'true' ? <Link className='ui button' to={`/addtocart/${item._id}`}>Add to Cart</Link> : null}
                     </div>
                 )
             })
@@ -97,6 +98,7 @@ class UserIndex extends React.Component {
                         <h5>Price (USD): {item.price}</h5>
                         <h5>Weight (oz): {item.weight}</h5>
                         <h5>Stock: {item.stock}</h5>
+                        {this.props.userAuth === 'true' ? <Link className='ui button' to={`/addtocart/${item._id}`}>Add to Cart</Link> : null}
                     </div>
             )
         }
@@ -114,6 +116,7 @@ class UserIndex extends React.Component {
                         <h5>Price (USD): {item.price}</h5>
                         <h5>Weight (oz): {item.weight}</h5>
                         <h5>Stock: {item.stock}</h5>
+                        {this.props.userAuth === 'true' ? <Link className='ui button' to={`/addtocart/${item._id}`}>Add to Cart</Link> : null}
                     </div>
             )
         }
@@ -130,6 +133,7 @@ class UserIndex extends React.Component {
                     <h5>Price (USD): {item.price}</h5>
                     <h5>Weight (oz): {item.weight}</h5>
                     <h5>Stock: {item.stock}</h5>
+                    {this.props.userAuth === 'true' ? <Link className='ui button' to={`/addtocart/${item._id}`}>Add to Cart</Link> : null}
                 </div>
         )
     }
@@ -149,11 +153,12 @@ class UserIndex extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        items: Object.values(state.item)
+        items: Object.values(state.item),
+        userAuth: state.user.auth
     }
 }
 
 export default connect(
     mapStateToProps, 
-    { getItems }
+    { getItems, addToCart }
 )(UserIndex)

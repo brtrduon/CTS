@@ -20,7 +20,6 @@ class Header extends React.Component {
                 <Link className='item' to='/admin/index'>View Items</Link>
                 <Link className='item' to='/admin/users'>View Users</Link>
                 <Link className='item' to='/admin/createitem'>Create Item</Link>
-                {/* <Link className='item' to='/adminsignout'>Sign Out</Link> */}
                 <button className='item' onClick={this.adminSignOut}>Sign Out</button>
             </div>
         )
