@@ -9,11 +9,10 @@ class Items extends React.Component{
     }
 
     render() {
-        if (!this.props.item) {
+        const item = this.props.item
+        if (!item) {
             return <div>...loading</div>
         }
-
-        const item = this.props.item
 
         return (
             <div className='ui container celled grid centered'>

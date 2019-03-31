@@ -42,4 +42,6 @@ module.exports = app => {
     app.post('/signup', users.signUp)
 
     app.post('/addtocart/:_id', cart.addToCart)
+
+    app.get('/getcartitemcount/:user', cart.getCartItemCount)
 }

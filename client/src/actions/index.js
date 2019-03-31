@@ -30,7 +30,8 @@ export const adminSignUp = formValues => async dispatch => {
 export const adminSignOut = () => async dispatch => {
     localStorage.setItem('adminState', false) 
     await dispatch({
-        type: 'ADMIN_LOGOUT'
+        type: 'ADMIN_LOGOUT',
+        payload: console.log('Admin has signed out')
     })
     localStorage.removeItem('jwtToken')
     history.push('/admin')

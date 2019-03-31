@@ -6,6 +6,7 @@ import UserIndex from './users'
 import UserSignIn from './users/UserSignIn'
 import UserSignUp from './users/UserSignUp'
 import Items from './users/Items'
+import UserCart from './users/cart'
 import AddToCart from './users/cart/AddToCart'
 
 // admin functionality
@@ -37,6 +38,7 @@ const App = () => {
                         <Route path='/signup' exact component={UserSignUp} />
                         <Route path='/signin' exact component={UserSignIn} />
                         <Route path='/item/:id' exact component={Items} />
+                        <Route path='/cart' exact component={UserCart} />
                         <Route path='/addtocart/:id' exact component={AddToCart} />
 
                         {/* admin */}

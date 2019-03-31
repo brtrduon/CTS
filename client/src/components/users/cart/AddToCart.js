@@ -4,7 +4,8 @@ import { addToCart } from '../../../actions/UserActions'
 
 class AddToCart extends React.Component {
     componentDidMount() {
-        this.props.addToCart(this.props.match.params.id)
+        let user = localStorage._id
+        this.props.addToCart(this.props.match.params.id, user)
     }
 
     render() {

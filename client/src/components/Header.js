@@ -2,9 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { adminSignOut } from '../actions'
-import { userSignOut } from '../actions/UserActions'
+import { userSignOut, getCartItemCount } from '../actions/UserActions'
 
 class Header extends React.Component {
+    componentDidMount() {
+        this.props.getCartItemCount(localStorage._id)
+    }
+
     adminSignOut = () => {
         this.props.adminSignOut()
     }
@@ -30,6 +34,7 @@ class Header extends React.Component {
             return (
                 <div className='ui secondary pointing menu'>
                      <Link className='item' to='/'>Home</Link>
+                     <Link className='item' to='/cart'>View Cart</Link>
                      <button className='item' onClick={this.userSignOut}>Sign Out</button>
                 </div>
             )
@@ -52,6 +57,7 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = state => {
+    console.log(state)
     return {
         auth: state.admin.auth,
         userAuth: state.user.auth
@@ -60,5 +66,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { adminSignOut, userSignOut },
+    { adminSignOut, userSignOut, getCartItemCount },
 )(Header)

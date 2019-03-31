@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { getCartItemCount } from '../../../actions/UserActions'
 
 class UserCart extends React.Component {
     render() {
@@ -8,4 +10,7 @@ class UserCart extends React.Component {
     }
 }
 
-export default UserCart
+export default connect(
+    null,
+    { getCartItemCount }
+)(UserCart)
