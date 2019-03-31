@@ -4,11 +4,13 @@ import itemReducer from './itemReducer'
 import adminReducer from './adminReducer'
 import userReducer from './userReducer'
 import adminUsersReducer from './adminUsersReducer'
+import cartReducer from './cartReducer';
 
 export default combineReducers({
     form: formReducer,
     item: itemReducer,
     admin: adminReducer,
     user: userReducer,
-    adminUsersCtrl: adminUsersReducer
+    adminUsersCtrl: adminUsersReducer,
+    cart: cartReducer
 })
