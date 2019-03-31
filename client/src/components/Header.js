@@ -35,6 +35,7 @@ class Header extends React.Component {
                 <div className='ui secondary pointing menu'>
                      <Link className='item' to='/'>Home</Link>
                      <Link className='item' to='/cart'>View Cart</Link>
+                     {/* have counter for items inside cart here */}
                      <button className='item' onClick={this.userSignOut}>Sign Out</button>
                 </div>
             )
