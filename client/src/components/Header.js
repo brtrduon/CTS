@@ -17,6 +17,16 @@ class Header extends React.Component {
         this.props.userSignOut()
     }
 
+    cartItemCounter = () => {
+        if (!this.props.cart) {
+            return null
+        }
+
+        return (
+            <div>({this.props.cart.item.length})</div>
+        )
+    }
+
     renderAdminAuth = () => {
         return (
             <div className='ui secondary pointing menu'>
@@ -34,8 +44,7 @@ class Header extends React.Component {
             return (
                 <div className='ui secondary pointing menu'>
                      <Link className='item' to='/'>Home</Link>
-                     <Link className='item' to='/cart'>View Cart</Link>
-                     {/* have counter for items inside cart here */}
+                     <Link className='item' to='/cart'>View Cart {this.cartItemCounter()}</Link>
                      <button className='item' onClick={this.userSignOut}>Sign Out</button>
                 </div>
             )
@@ -58,10 +67,10 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = state => {
-    // console.log(state)
     return {
         auth: state.admin.auth,
-        userAuth: state.user.auth
+        userAuth: state.user.auth,
+        cart: Object.values(state.cart)[0]
     }
 }
 
