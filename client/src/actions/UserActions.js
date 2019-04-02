@@ -63,3 +63,12 @@ export const getCartItemCount = user => async dispatch => {
         payload: res.data
     })
 }
+export const removeItemFromCart = _id => async dispatch => {
+    const res = await axios.delete(`${serverURL}/removeitemfromcart/${_id}`)
+
+    dispatch({
+        type: 'REMOVE_ITEM_FROM_CART',
+        payload: res.data
+    })
+    history.push('/cart')
+}

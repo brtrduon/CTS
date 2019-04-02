@@ -44,4 +44,6 @@ module.exports = app => {
     app.post('/addtocart/:_id', cart.addToCart)
 
     app.get('/getcartitemcount/:user', cart.getCartItemCount)
+
+    app.delete('/removeitemfromcart/:_id', cart.removeItemFromCart)
 }

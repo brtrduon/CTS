@@ -56,3 +56,7 @@ exports.getCartItemCount = function(req, res, next) {
         res.json(cart)
     })
 }
+
+exports.removeItemFromCart = function(req, res, next) {
+    console.log('pewp')
+}
