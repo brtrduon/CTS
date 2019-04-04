@@ -23,6 +23,7 @@ class UserCart extends React.Component {
                     <h5>Product number: {item.item_number}</h5>
                     <h5>Price (USD): {item.price}</h5>
                     <h5>Weight (oz): {item.weight}</h5>
+                    <h5><Link className='ui button negative' to={`/cart/removeItem/${item._id}`}>Remove Item</Link></h5>
                 </div>
             )
         })

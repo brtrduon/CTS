@@ -8,6 +8,7 @@ import UserSignUp from './users/UserSignUp'
 import Items from './users/Items'
 import UserCart from './users/cart'
 import AddToCart from './users/cart/AddToCart'
+import RemoveItemFromCart from './users/cart/RemoveItemFromCart'
 
 // admin functionality
 import AdminLogin from './admin'
@@ -39,6 +40,7 @@ const App = () => {
                         <Route path='/signin' exact component={UserSignIn} />
                         <Route path='/item/:id' exact component={Items} />
                         <Route path='/cart' exact component={UserCart} />
+                        <Route path='/cart/removeitem/:id' exact component={RemoveItemFromCart} />
                         <Route path='/addtocart/:id' exact component={AddToCart} />
 
                         {/* admin */}
