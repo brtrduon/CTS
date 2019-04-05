@@ -22,6 +22,27 @@ class RemoveItemFromCart extends React.Component {
         )
     }
 
+    renderContentBackground = () => {
+        if (!this.props.item) {
+            return `Loading...`
+        }
+
+        return (
+            <div className='ui container celled grid centered'>
+                <div className='ui equal width'>
+                    <h5>Item name: {item.name}</h5>
+                    <h5>Item Description: {item.description}</h5>
+                    <h5>Brand: {item.brand}</h5>
+                    <h5>Type of Item: {item.item_type}</h5>
+                    <h5>Product number: {item.item_number}</h5>
+                    <h5>Price (USD): {item.price}</h5>
+                    <h5>Weight (oz): {item.weight}</h5>
+                    <h5>Stock: {item.stock}</h5>
+                </div>
+            </div>
+        )
+    }
+
     renderContent = () => {
         if (!this.props.item) {
             return `Loading...`
@@ -35,6 +56,7 @@ class RemoveItemFromCart extends React.Component {
             <Modal
                 title='Remove item from cart'
                 content={this.renderContent()}
+                contentBackground={this.renderContentBackground()}
                 actions={this.renderActions()}
                 onDismiss={() => history.push('/cart')}
             />
