@@ -9,7 +9,6 @@ class UserCart extends React.Component {
     }
 
     renderCartItems = () => {
-        
         return this.props.cart.item.map(item => {
             return (
                 <div className='ui equal width' key={item._id}>
@@ -25,13 +24,22 @@ class UserCart extends React.Component {
             )
         })
     }
+
+    renderTotalPrice = () => {
+        let subtotal = 0
+        this.props.cart.item.map(item => {
+            subtotal += item.price
+        })
+
+        return subtotal
+    }
     
     render() {
         if (!this.props.cart) {
             return <div>Loading...</div>
         }
-        
-        if (this.props.cart.item.length == 0) {
+
+        if (this.props.cart.item.length === 0) {
             return (
                 <div className='ui equal width'>
                     <h5>Your cart is empty</h5>
@@ -45,6 +53,7 @@ class UserCart extends React.Component {
                 <div className='ui container celled grid centered'>
                     {this.renderCartItems()}
                 </div>
+                <h4>Subtotal: ${this.renderTotalPrice()}</h4>
             </div>
         )
     }
