@@ -58,5 +58,20 @@ exports.getCartItemCount = function(req, res, next) {
 }
 
 exports.removeItemFromCart = function(req, res, next) {
-    console.log('pewp')
+    let user = req.body.user
+    let item = req.params._id
+
+    Cart.findOne({ user }, (err, user) => {
+        if (err) {
+            return next(err)
+        }
+
+        let index = user.item.indexOf(item)
+        if (index !== -1) {
+            user.item.splice(index, 1)
+        }
+
+        user.save()
+        res.json(user)
+    })
 }

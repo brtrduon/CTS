@@ -86,8 +86,6 @@ exports.editItem = (req, res, next) => {
 }
 
 exports.deleteItem = (req, res, next) => {
-    // console.log(req.params._id)
-
     Item.findByIdAndRemove(req.params._id, (err, item) => {
         if (err) {
             return next(err)

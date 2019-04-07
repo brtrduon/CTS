@@ -8,7 +8,6 @@ import { getItem, removeItemFromCart } from '../../../actions/UserActions'
 class RemoveItemFromCart extends React.Component {
     componentDidMount() {
         this.props.getItem(this.props.match.params.id)
-        console.log(this.props.match.params.id)
     }
 
     renderActions = () => {
@@ -16,14 +15,16 @@ class RemoveItemFromCart extends React.Component {
 
         return (
             <React.Fragment>
-                <button onClick={() => this.props.removeItemFromCart(id)} className='ui button negative'>Delete</button>
-                <Link to='/' className='ui button'>Cancel</Link>
+                <button onClick={() => this.props.removeItemFromCart(id, localStorage._id)} className='ui button negative'>Delete</button>
+                <Link to='/cart' className='ui button'>Cancel</Link>
             </React.Fragment>
         )
     }
 
     renderContentBackground = () => {
-        if (!this.props.item) {
+        const item = this.props.item
+
+        if (!item) {
             return `Loading...`
         }
 

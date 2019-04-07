@@ -45,7 +45,7 @@ export const getItem = _id => async dispatch => {
     })
 }
 
-export const addToCart = (_id, user ) => async dispatch => {
+export const addToCart = (_id, user) => async dispatch => {
     const res = await axios.post(`${serverURL}/addtocart/${_id}`, { user })
 
     dispatch({
@@ -63,8 +63,8 @@ export const getCartItemCount = user => async dispatch => {
         payload: res.data
     })
 }
-export const removeItemFromCart = _id => async dispatch => {
-    const res = await axios.delete(`${serverURL}/removeitemfromcart/${_id}`)
+export const removeItemFromCart = (_id, user) => async dispatch => {
+    const res = await axios.patch(`${serverURL}/removeitemfromcart/${_id}`, { user })
 
     dispatch({
         type: 'REMOVE_ITEM_FROM_CART',

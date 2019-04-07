@@ -15,9 +15,10 @@ export default (state = {}, action) => {
             }
 
         case 'REMOVE_ITEM_FROM_CART':
-            return _.omit(
-                    action.payload
-                )
+            return {
+                ...state,
+                [action.payload._id]: action.payload
+            }
             
 
         default:

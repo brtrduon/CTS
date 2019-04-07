@@ -45,5 +45,5 @@ module.exports = app => {
 
     app.get('/getcartitemcount/:user', cart.getCartItemCount)
 
-    app.delete('/removeitemfromcart/:_id', cart.removeItemFromCart)
+    app.patch('/removeitemfromcart/:_id', cart.removeItemFromCart)
 }

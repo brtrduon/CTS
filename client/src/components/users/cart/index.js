@@ -9,10 +9,7 @@ class UserCart extends React.Component {
     }
 
     renderCartItems = () => {
-        if (!this.props.cart) {
-            return <div>Loading...</div>
-        }
-
+        
         return this.props.cart.item.map(item => {
             return (
                 <div className='ui equal width' key={item._id}>
@@ -28,8 +25,20 @@ class UserCart extends React.Component {
             )
         })
     }
-
+    
     render() {
+        if (!this.props.cart) {
+            return <div>Loading...</div>
+        }
+        
+        if (this.props.cart.item.length == 0) {
+            return (
+                <div className='ui equal width'>
+                    <h5>Your cart is empty</h5>
+                </div>
+            )
+        }
+
         return (
             <div>
                 <h2>Your Cart</h2>
