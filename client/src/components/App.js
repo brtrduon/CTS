@@ -9,6 +9,7 @@ import Items from './users/Items'
 import UserCart from './users/cart'
 import AddToCart from './users/cart/AddToCart'
 import RemoveItemFromCart from './users/cart/RemoveItemFromCart'
+import Checkout from './users/cart/Checkout'
 
 // admin functionality
 import AdminLogin from './admin'
@@ -31,7 +32,7 @@ const App = () => {
     return (
         <div>
             <Router history={history}>
-                <div className='ui container'>
+                <div className='ui fluid container'>
                     <Header />
                     <Switch>
                         {/* users */}
@@ -42,6 +43,7 @@ const App = () => {
                         <Route path='/cart' exact component={UserCart} />
                         <Route path='/cart/removeitem/:id' exact component={RemoveItemFromCart} />
                         <Route path='/addtocart/:id' exact component={AddToCart} />
+                        <Route path='/checkout' exact component={Checkout} />
 
                         {/* admin */}
                         <Route path='/admin' exact component={AdminLogin} />

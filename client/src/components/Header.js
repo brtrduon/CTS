@@ -1,4 +1,5 @@
 import React from 'react';
+import './Header.css'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { adminSignOut } from '../actions'
@@ -29,12 +30,12 @@ class Header extends React.Component {
 
     renderAdminAuth = () => {
         return (
-            <div className='ui secondary pointing menu'>
+            <div className='ui secondary menu'>
                 <Link className='item' to='/admin/index'>Admin Home</Link>
                 <Link className='item' to='/admin/index'>View Items</Link>
                 <Link className='item' to='/admin/users'>View Users</Link>
                 <Link className='item' to='/admin/createitem'>Create Item</Link>
-                <button className='item' onClick={this.adminSignOut}>Sign Out</button>
+                <button className='item hand' onClick={this.adminSignOut}>Sign Out</button>
             </div>
         )
     }
@@ -42,16 +43,16 @@ class Header extends React.Component {
     renderUser = () => {
         if (this.props.userAuth === 'true') {
             return (
-                <div className='ui secondary pointing menu'>
+                <div className='ui secondary menu'>
                      <Link className='item' to='/'>Home</Link>
                      <Link className='item' to='/cart'>View Cart {this.cartItemCounter()}</Link>
-                     <button className='item' onClick={this.userSignOut}>Sign Out</button>
+                     <button className='item hand' onClick={this.userSignOut}>Sign Out</button>
                 </div>
             )
         }
 
         return (
-            <div className='ui secondary pointing menu'>
+            <div className='ui secondary menu'>
                 <Link className='item' to='/'>Home</Link>
                 <Link className='item' to='/signup'>Create an Account</Link>
                 <Link className='item' to='/signin'>Sign In</Link>

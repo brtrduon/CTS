@@ -24,7 +24,7 @@ class AdminUsersView extends React.Component {
         return (
             <div>
                 <h2>Users</h2>
-                <div className='ui container celled grid centered'>
+                <div className='ui celled grid centered'>
                     {this.renderUsers()}
                 </div>
             </div>

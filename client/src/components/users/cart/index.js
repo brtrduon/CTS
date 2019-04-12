@@ -50,10 +50,11 @@ class UserCart extends React.Component {
         return (
             <div>
                 <h2>Your Cart</h2>
-                <div className='ui container celled grid centered'>
+                <div className='ui celled grid centered'>
                     {this.renderCartItems()}
                 </div>
                 <h4>Subtotal: ${this.renderTotalPrice()}</h4>
+                <button className='ui button primary'>Proceed to Checkout</button>
             </div>
         )
     }
