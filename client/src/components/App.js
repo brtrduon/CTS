@@ -5,7 +5,8 @@ import { Router, Route, Switch } from 'react-router-dom'
 import UserIndex from './users'
 import UserSignIn from './users/UserSignIn'
 import UserSignUp from './users/UserSignUp'
-import Items from './users/Items'
+import ItemsUserView from './users/ItemsUserView'
+import Item from './users/Item'
 import UserCart from './users/cart'
 import AddToCart from './users/cart/AddToCart'
 import RemoveItemFromCart from './users/cart/RemoveItemFromCart'
@@ -39,7 +40,8 @@ const App = () => {
                         <Route path='/' exact component={UserIndex} />
                         <Route path='/signup' exact component={UserSignUp} />
                         <Route path='/signin' exact component={UserSignIn} />
-                        <Route path='/item/:id' exact component={Items} />
+                        <Route path='/items' exact component={ItemsUserView} />
+                        <Route path='/item/:id' exact component={Item} />
                         <Route path='/cart' exact component={UserCart} />
                         <Route path='/cart/removeitem/:id' exact component={RemoveItemFromCart} />
                         <Route path='/addtocart/:id' exact component={AddToCart} />

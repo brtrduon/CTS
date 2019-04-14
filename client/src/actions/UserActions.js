@@ -52,7 +52,7 @@ export const addToCart = (_id, user) => async dispatch => {
         type: 'ADD_TO_CART',
         payload: res.data
     })
-    history.push('/')
+    history.push('/items')
 }
 
 export const getCartItemCount = user => async dispatch => {

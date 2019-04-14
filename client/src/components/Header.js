@@ -35,7 +35,7 @@ class Header extends React.Component {
                 <Link className='item' to='/admin/index'>View Items</Link>
                 <Link className='item' to='/admin/users'>View Users</Link>
                 <Link className='item' to='/admin/createitem'>Create Item</Link>
-                <button className='item hand' onClick={this.adminSignOut}>Sign Out</button>
+                <button className='item hand red' onClick={this.adminSignOut}>Sign Out</button>
             </div>
         )
     }
@@ -45,9 +45,10 @@ class Header extends React.Component {
             return (
                 <div className='ui container'>
                      <Link className='item' to='/'>Home</Link>
+                     <Link className='item' to='/items'>View Items</Link>
                      <div className='right menu'>
                         <Link className='item' to='/cart'>View Cart {this.cartItemCounter()}</Link>
-                        <button className='ui button' onClick={this.userSignOut}>Sign Out</button>
+                        <button className='ui button red' onClick={this.userSignOut}>Sign Out</button>
                      </div>
                 </div>
             )
@@ -56,6 +57,7 @@ class Header extends React.Component {
         return (
             <div className='ui container'>
                 <Link className='item' to='/'>Home</Link>
+                <Link className='item' to='/items'>View Items</Link>
                 <div className='right menu'>
                     <Link className='ui primary button' to='/signup'>Create an Account</Link>
                     <Link className='ui button' to='/signin'>Sign In</Link>

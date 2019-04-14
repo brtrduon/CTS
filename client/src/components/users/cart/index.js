@@ -36,7 +36,7 @@ class UserCart extends React.Component {
     renderTotalPrice = () => {
         let subtotal = 0
         this.props.cart.item.map(item => {
-            subtotal += item.price
+            return subtotal += item.price
         })
 
         return subtotal
