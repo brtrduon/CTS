@@ -10,8 +10,8 @@ class UserSignUp extends React.Component {
 
     render() {
         return (
-            <div>
-                <h3>User Sign Up</h3>
+            <div className='ui middle aligned stackable grid container'>
+                <h1>User Sign Up</h1>
                 <UserSignUpForm onSubmit={this.onSubmit} />
             </div>
         )

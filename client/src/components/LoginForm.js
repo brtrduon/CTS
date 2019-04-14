@@ -30,11 +30,13 @@ class LoginForm extends React.Component {
 
     render(){
         return (
-            <form onSubmit={this.props.handleSubmit(this.onSubmit)} className='ui form error'>
-                <Field name='username' component={this.renderInput} label='Username' />
-                <Field name='password' component={this.renderInput} label='Password' type='password' />
-                <button className='ui button primary'>Login</button>
-            </form>
+            <div className='ui container'>
+                <form onSubmit={this.props.handleSubmit(this.onSubmit)} className='ui form error'>
+                    <Field name='username' component={this.renderInput} label='Username' />
+                    <Field name='password' component={this.renderInput} label='Password' type='password' />
+                    <button className='ui button primary'>Login</button>
+                </form>
+            </div>
         )
     }
 }

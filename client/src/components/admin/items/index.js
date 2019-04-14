@@ -144,8 +144,10 @@ class AdminIndex extends React.Component {
 
     render(){
         return (
-            <div>
-                <h2>Inventory</h2>
+            <div className='ui middle aligned stackable grid container'>
+                <div className='row'>
+                    <h2>Inventory</h2>
+                </div>
                 {this.renderFilter()}
                 <div className='ui celled grid centered'>
                     {this.renderItems()}

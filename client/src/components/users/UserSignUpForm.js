@@ -30,15 +30,18 @@ class UserSignUpForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.props.handleSubmit(this.onSubmit)} className='ui form error'>
-                <Field name='username' component={this.renderInput} className='ui form error' label='Username*' />
-                <Field name='email' type='email' component={this.renderInput} className='ui form error' label='Email*' />
-                <Field name='firsst_name' component={this.renderInput} className='ui form error' label='First Name*' />
-                <Field name='last_name' component={this.renderInput} className='ui form error' label='Last Name*' />
-                <Field name='password' type='password' component={this.renderInput} className='ui form error' label='Password*' />
-                <Field name='confirm_password' type='password' component={this.renderInput} className='ui form error' label='Confirm Password*' />
-                <button className='ui button primary'>Submit</button>
-            </form>
+            <div className='ui container'>
+                <form onSubmit={this.props.handleSubmit(this.onSubmit)} className='ui form error'>
+                    <Field name='username' component={this.renderInput} className='ui form error' label='Username*' />
+                    <Field name='email' type='email' component={this.renderInput} className='ui form error' label='Email*' />
+                    <Field name='firsst_name' component={this.renderInput} className='ui form error' label='First Name*' />
+                    <Field name='last_name' component={this.renderInput} className='ui form error' label='Last Name*' />
+                    <Field name='password' type='password' component={this.renderInput} className='ui form error' label='Password*' />
+                    <Field name='confirm_password' type='password' component={this.renderInput} className='ui form error' label='Confirm Password*' />
+                    <button className='ui button primary'>Submit</button>
+                </form>
+            
+            </div>
         )
     }
 }

@@ -32,7 +32,7 @@ const App = () => {
     return (
         <div>
             <Router history={history}>
-                <div className='ui fluid container'>
+                <div>
                     <Header />
                     <Switch>
                         {/* users */}

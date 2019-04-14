@@ -54,7 +54,7 @@ export const createItem = formValues => async dispatch => {
         type: 'CREATE_ITEM',
         payload: res.data
     })
-    // history.push('/')
+    history.push('/admin')
 }
 
 export const getItems = () => async dispatch => {
@@ -82,7 +82,7 @@ export const editItem = (formValues, _id) => async dispatch => {
         type: 'EDIT_ITEM',
         payload: res.data
     })
-    history.push('/')
+    history.push('/admin')
 }
 
 export const deleteItem = _id => async dispatch => {
@@ -92,5 +92,5 @@ export const deleteItem = _id => async dispatch => {
         type: 'DELETE_ITEM',
         payload: res.data
     })
-    history.push('/')
+    history.push('/admin')
 }

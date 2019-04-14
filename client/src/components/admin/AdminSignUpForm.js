@@ -30,12 +30,14 @@ class AdminSignUpForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.props.handleSubmit(this.onSubmit)} className='ui form error'>
-                <Field name='username' component={this.renderInput} label='Username*' />
-                <Field name='password' type='password' component={this.renderInput} label='Password*' />
-                <Field name='confirm_password' type='password' component={this.renderInput} label='Confirm Password*' />
-                <button className='ui button primary'>Submit</button>
-            </form>
+            <div className='ui container'>
+                <form onSubmit={this.props.handleSubmit(this.onSubmit)} className='ui form error'>
+                    <Field name='username' component={this.renderInput} label='Username*' />
+                    <Field name='password' type='password' component={this.renderInput} label='Password*' />
+                    <Field name='confirm_password' type='password' component={this.renderInput} label='Confirm Password*' />
+                    <button className='ui button primary'>Submit</button>
+                </form>
+            </div>
         )
     }
 }

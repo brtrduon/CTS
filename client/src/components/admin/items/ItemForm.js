@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import FileInput from './FileInput'
+// import FileInput from './FileInput'
 
 class ItemForm extends React.Component {
     renderError = ({ error, touched }) => {
@@ -40,7 +40,7 @@ class ItemForm extends React.Component {
                 <Field name='price' component={this.renderInput} type='number' label='Price (USD)*' />
                 <Field name='weight' component={this.renderInput} type='number' label='Weight (oz)*' />
                 <Field name='stock' component={this.renderInput} type='number' label='Stock*' />
-                <Field name='img' component={FileInput} label='Image' />
+                {/* <Field name='img' component={FileInput} label='Image' /> */}
                 <button className='ui button primary'>Submit</button>
             </form>
         )

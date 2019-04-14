@@ -9,6 +9,14 @@ class UserCart extends React.Component {
     }
 
     renderCartItems = () => {
+        if (this.props.cart.item.length === 0) {
+            return (
+                <div className='row'>
+                    <h5>Your cart is empty</h5>
+                </div>
+            )
+        }
+
         return this.props.cart.item.map(item => {
             return (
                 <div className='ui equal width' key={item._id}>
@@ -19,7 +27,7 @@ class UserCart extends React.Component {
                     <h5>Product number: {item.item_number}</h5>
                     <h5>Price (USD): {item.price}</h5>
                     <h5>Weight (oz): {item.weight}</h5>
-                    <h5><Link className='ui button negative' to={`/cart/removeItem/${item._id}`}>Remove Item</Link></h5>
+                    <h5><Link className='ui button negative' to={`/cart/removeItem/${item._id}`}>Remove Item from cart</Link></h5>
                 </div>
             )
         })
@@ -39,22 +47,22 @@ class UserCart extends React.Component {
             return <div>Loading...</div>
         }
 
-        if (this.props.cart.item.length === 0) {
-            return (
-                <div className='ui equal width'>
-                    <h5>Your cart is empty</h5>
-                </div>
-            )
-        }
-
         return (
-            <div>
-                <h2>Your Cart</h2>
-                <div className='ui celled grid centered'>
+            <div className='ui middle aligned stackable grid container'>
+                <div className='row'>
+                    <h2>Your Cart</h2>
+                </div>
+                <div className='ui celled centered'>
                     {this.renderCartItems()}
                 </div>
-                <h4>Subtotal: ${this.renderTotalPrice()}</h4>
-                <button className='ui button primary'>Proceed to Checkout</button>
+                <div className='row'>
+                    <h4>Subtotal: ${this.renderTotalPrice()}</h4>
+                </div>
+                <div className='row'>
+                    {
+                        this.props.cart.item.length === 0 ? null : <button className='ui button primary'>Proceed to Checkout</button>
+                    }
+                </div>
             </div>
         )
     }

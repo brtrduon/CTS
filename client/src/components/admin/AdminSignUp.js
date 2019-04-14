@@ -10,8 +10,8 @@ class AdminSignUp extends React.Component {
 
     render() {
         return (
-            <div>
-                <h3>Admin Sign Up</h3>
+            <div className='ui middle aligned stackable grid container'>
+                <h1>Admin Sign Up</h1>
                 <AdminSignUpForm onSubmit={this.onSubmit} />
             </div>
         )

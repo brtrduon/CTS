@@ -17,8 +17,8 @@ class AdminLogin extends React.Component {
 
     render(){
         return (
-            <div>
-                <h3>Admin Login</h3>
+            <div className='ui middle aligned stackable grid container'>
+                <h1>Admin Login</h1>
                 <LoginForm onSubmit={this.onSubmit} />
             </div>
         )

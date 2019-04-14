@@ -70,7 +70,7 @@ class UserIndex extends React.Component {
         if (this.state.brand === 'All' && this.state.item_type === 'All') {
             return this.props.items.map(item => {
                 return (
-                    <div className='ui equal width' key={item._id}>
+                    <div className='ui equal width doubling' key={item._id}>
                         <h5>Item name: <Link to={`/item/${item._id}`}>{item.name}</Link></h5>
                         <h5>{item.description ? `Item Description: ${item.description}` : null}</h5>
                         <h5>{item.brand ? `Brand: ${item.brand}` : null}</h5>
@@ -140,9 +140,13 @@ class UserIndex extends React.Component {
 
     render(){
         return (
-            <div>
-                <h2>Items</h2>
-                {this.renderFilter()}
+            <div className='ui middle aligned stackable grid container'>
+                <div className='row'>
+                    <h2>Items</h2>
+                </div>
+                <div className='ui divider'>
+                    {this.renderFilter()}
+                </div>
                 <div className='ui fluid celled grid centered'>
                     {this.renderItems()}
                 </div>

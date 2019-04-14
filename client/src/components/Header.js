@@ -30,7 +30,7 @@ class Header extends React.Component {
 
     renderAdminAuth = () => {
         return (
-            <div className='ui secondary menu'>
+            <div className='ui container'>
                 <Link className='item' to='/admin/index'>Admin Home</Link>
                 <Link className='item' to='/admin/index'>View Items</Link>
                 <Link className='item' to='/admin/users'>View Users</Link>
@@ -43,26 +43,32 @@ class Header extends React.Component {
     renderUser = () => {
         if (this.props.userAuth === 'true') {
             return (
-                <div className='ui secondary menu'>
+                <div className='ui container'>
                      <Link className='item' to='/'>Home</Link>
-                     <Link className='item' to='/cart'>View Cart {this.cartItemCounter()}</Link>
-                     <button className='item hand' onClick={this.userSignOut}>Sign Out</button>
+                     <div className='right menu'>
+                        <Link className='item' to='/cart'>View Cart {this.cartItemCounter()}</Link>
+                        <button className='ui button' onClick={this.userSignOut}>Sign Out</button>
+                     </div>
                 </div>
             )
         }
 
         return (
-            <div className='ui secondary menu'>
+            <div className='ui container'>
                 <Link className='item' to='/'>Home</Link>
-                <Link className='item' to='/signup'>Create an Account</Link>
-                <Link className='item' to='/signin'>Sign In</Link>
+                <div className='right menu'>
+                    <Link className='ui primary button' to='/signup'>Create an Account</Link>
+                    <Link className='ui button' to='/signin'>Sign In</Link>
+                </div>
             </div>
         )
     }
 
     render() {
         return (
-            <div>{this.props.auth === 'true' ? this.renderAdminAuth() : this.renderUser()}</div>
+            <div className='ui large fixed hidden grid menu'>
+                {this.props.auth === 'true' ? this.renderAdminAuth() : this.renderUser()}
+            </div>
         )
     }
 }

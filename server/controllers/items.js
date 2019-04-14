@@ -1,6 +1,6 @@
 const Item = require('../models/item')
-const multer = require('multer')
-const upload = multer({dest: 'uploads/'})
+// const multer = require('multer')
+// const upload = multer({dest: 'uploads/'})
 
 exports.getItems = (req, res, next) => {
     Item.find({}, (err, items) => {
@@ -21,30 +21,32 @@ exports.createItem = (req, res, next) => {
     let price = req.body.price
     let weight = req.body.weight
     let stock = req.body.stock
-    let img = req.file
+    // let img = req.file
 
-    console.log(req)
+    // console.log(req)
     
-    // let item = new Item({
-    //     name: name,
-    //     description: description,
-    //     brand: brand,
-    //     item_type: item_type,
-    //     item_number: item_number,
-    //     price: price,
-    //     weight: weight,
-    //     stock: stock,
-    //     img: img
-    // })
+    let item = new Item(
+        {
+            name,
+            description,
+            brand,
+            item_type,
+            item_number,
+            price,
+            weight,
+            stock,
+            // img
+        }
+    )
 
-    // item.save(err => {
-    //     if (err) {
-    //         return next(err)
-    //     }
-    //     res.json({
-    //         item
-    //     })
-    // })
+    item.save(err => {
+        if (err) {
+            return next(err)
+        }
+        res.json({
+            item
+        })
+    })
 }
 
 exports.getItem = (req, res, next) => {
