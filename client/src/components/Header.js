@@ -45,7 +45,7 @@ class Header extends React.Component {
             return (
                 <div className='ui container'>
                      <Link className='item' to='/'>Home</Link>
-                     <Link className='item' to='/items'>View Items</Link>
+                     <Link className='item' to='/items'>Buy Now</Link>
                      <div className='right menu'>
                         <Link className='item' to='/cart'>View Cart {this.cartItemCounter()}</Link>
                         <button className='ui button red' onClick={this.userSignOut}>Sign Out</button>
@@ -57,7 +57,7 @@ class Header extends React.Component {
         return (
             <div className='ui container'>
                 <Link className='item' to='/'>Home</Link>
-                <Link className='item' to='/items'>View Items</Link>
+                <Link className='item' to='/items'>Buy Now</Link>
                 <div className='right menu'>
                     <Link className='ui primary button' to='/signup'>Create an Account</Link>
                     <Link className='ui button' to='/signin'>Sign In</Link>

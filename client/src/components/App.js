@@ -27,6 +27,7 @@ import EditItem from './admin/items/EditItem'
 import AdminUsersView from './admin/users'
 
 import Header from './Header'
+import Footer from './Footer'
 import history from '../history';
 
 const App = () => {
@@ -56,6 +57,7 @@ const App = () => {
                         <Route path='/admin/edit/:id' exact component={RequireAuth(EditItem)} />
                         <Route path='/admin/delete/:id' exact component={RequireAuth(DeleteItem)} />
                     </Switch>
+                    <Footer />
                 </div>
             </Router>
         </div>
