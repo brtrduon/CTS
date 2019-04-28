@@ -46,7 +46,7 @@ const App = () => {
                         <Route path='/cart' exact component={UserCart} />
                         <Route path='/cart/removeitem/:id' exact component={RemoveItemFromCart} />
                         <Route path='/addtocart/:id' exact component={AddToCart} />
-                        <Route path='/checkout' exact component={Checkout} />
+                        <Route path='/cart/checkout' exact component={Checkout} />
 
                         {/* admin */}
                         <Route path='/admin' exact component={AdminLogin} />

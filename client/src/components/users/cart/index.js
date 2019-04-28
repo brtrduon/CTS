@@ -60,7 +60,7 @@ class UserCart extends React.Component {
                 </div>
                 <div className='row'>
                     {
-                        this.props.cart.item.length === 0 ? null : <button className='ui button primary'>Proceed to Checkout</button>
+                        this.props.cart.item.length === 0 ? null : <Link to='/cart/checkout' className='ui button primary'>Proceed to Checkout</Link>
                     }
                 </div>
             </div>
