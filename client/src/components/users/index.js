@@ -9,21 +9,32 @@ class UserIndex extends React.Component {
                 <div className='row centered title'>
                     <h1>Carb Tech Solutions</h1>
                 </div>
+                {/* move title to middle of banner. add some kind of animation on load? */}
                 <div className='row centered banner'>
                 </div>
                 <div className='ui middle aligned stackable grid container'>
                     <div className='row centered'>
-                        <div className='three wide column black'>One</div>
-                        <div className='three wide column'>Two</div>
-                        <div className='three wide column'>Three</div>
+                        <div className='three wide column black'>
+                            {/* featured item (make this static? link to certain id?) */}
+                        </div>
+                        <div className='three wide column'>
+                            {/* some kind of feature/description regarding carb rebuild kit */}
+                        </div>
+                        <div className='three wide column'>
+                            {/* "success stories" (?) */}
+                        </div>
                     </div>
                     <div className='row centered'>
+                        {/* insert some kind of background image / color gradient here? maybe make this outside of gric container (similar to how banner is currently set up) */}
                         Carb Tech Solutions (CTS) is an online retailer and distributor that specializes in carburetor rebuild kits. These kits include (but are not limited to) metering and pump diaphragms, inlet needle values, and entire carburetor assemblies. Our goal is to provide high quality aftermarket alternatives comparable to those of original manufactured parts and accessories.
                     </div>
                     <div className='row centered'>
-                        <div className='three wide column black'>One</div>
-                        <div className='three wide column'>Two</div>
-                        <div className='three wide column'>Three</div>
+                        <div className='three wide column black'>
+                            {/* "view items" link, but with some kind of slogan / pitch / img */}
+                        </div>
+                        <div className='three wide column'>
+                            {/* "contact us" (?) this can lead to a "coming soon" / dummy component/page */}
+                        </div>
                     </div>
                     <div className='row'>
                         <div className='five wide column'>
@@ -41,7 +52,7 @@ class UserIndex extends React.Component {
                         </div>
                         <div className='eight wide column'>
                             <p>
-                                Born in Seoul, South Korea, and raised in Southern California, Jared Jiho Kim obtained his Bachelor's degree in financing at the University of Utah, and obtained his Master's degree in Business Administration at the University of California, Berkeley. Through previous career experiences and technological prowess, Jared pioneered and appealed CTS to more diverse groups of lawn equipment users, ranging from homeowners to commercial users. Building upon his idealogy of tactical execution, Jared continues to implement innovative strategies to develop an alluent, yet friendly, company objective.
+                                Born in Seoul, South Korea, and raised in Southern California, Jared Jiho Kim obtained his Bachelor's degree in financing at the University of Utah, and obtained his Master's degree in Business Administration at the University of California, Berkeley. Through previous career experiences and technological prowess, Jared appealed and expanded CTS to more diverse groups of lawn equipment users, ranging from small home users to commercial users. Building upon his idealogy of tactical execution, Jared continues to implement effective and innovative strategies to develop towards an alluent, yet friendly, company objective.
                             </p>
                         </div>
                     </div>
