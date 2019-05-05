@@ -1,21 +1,45 @@
-import React from 'react'
-// import { Link } from 'react-router-dom'
+import React from 'react' 
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { getItems } from '../../actions'
 import './index.css'
 
 class UserIndex extends React.Component {
+    componentDidMount() {
+        this.props.getItems()
+    }
+
+    featuredItem = () => {
+        let item = this.props.items
+
+        if (!item) {
+            return <div>Loading...</div>
+        }
+
+        return (
+            <div>
+                <h3>Featured Item</h3>
+                <h5><Link to={`/item/${item._id}`}>{item.name}</Link></h5>
+                <h5>{item.description}</h5>
+                <h5>Item number: {item.item_number}</h5>
+                <h5>Brand: {item.brand}</h5>
+                <h5>${item.price}</h5>
+            </div>
+        )
+    }
+
     render(){
         return (
             <div>
-                <div className='row centered title'>
-                    <h1>Carb Tech Solutions</h1>
-                </div>
-                {/* move title to middle of banner. add some kind of animation on load? */}
                 <div className='row centered banner'>
+                    <div className='row centered title'>
+                        <h1 className='title'>Carb Tech Solutions</h1>
+                    </div>
                 </div>
                 <div className='ui middle aligned stackable grid container'>
                     <div className='row centered'>
                         <div className='three wide column black'>
-                            {/* featured item (make this static? link to certain id?) */}
+                            {this.featuredItem()}
                         </div>
                         <div className='three wide column'>
                             {/* some kind of feature/description regarding carb rebuild kit */}
@@ -64,4 +88,13 @@ class UserIndex extends React.Component {
     }
 }
 
-export default UserIndex
+const mapStateToProps = state => {
+    return {
+        items: Object.values(state.item)[0]
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { getItems }
+)(UserIndex)

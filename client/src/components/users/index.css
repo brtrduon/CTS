@@ -1,6 +1,14 @@
 .title {
-    margin-top: 5%;
+    margin-top: 5vh;
     text-align: center;
+}
+
+h1.title {
+    color: white;
+    position: relative;
+    top: 32vh;
+    font-size: 70px;
+    padding: 5vh 0;
 }
 
 .banner {
