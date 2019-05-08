@@ -38,14 +38,21 @@ class UserIndex extends React.Component {
                 </div>
                 <div className='ui middle aligned stackable grid container'>
                     <div className='row centered'>
-                        <div className='three wide column black'>
+                        <div className='four wide column black'>
                             {this.featuredItem()}
                         </div>
-                        <div className='three wide column'>
+                        <div className='four wide column'>
                             {/* some kind of feature/description regarding carb rebuild kit */}
+                            Our quality carburetor rebuild kits guarantee that you will have your equipments running like new!
                         </div>
-                        <div className='three wide column'>
-                            {/* "success stories" (?) */}
+                        <div className='four wide column'>
+                            <h1>Success Stories</h1>
+                            <h5>
+                                "Carb Tech Solutions provides us with a do-it-yourself affordable types of products that allows us to fix our equipments without having to bring our equipments into repair shops. We are glad that there is an alternative to having to make that long trip to get our lawn equipments running again!"
+                            </h5>
+                            <h5>
+                                "As a commercial gardener, these guys provide quality parts at a low price to quickly get our machines up and running. Shipping times may vary, but these guys typically ensure our orders get to us within three to five business days. Would definitely recommend to anyone who is willing to fix stuff themselves."
+                            </h5>
                         </div>
                     </div>
                     <div className='row centered'>
@@ -55,9 +62,11 @@ class UserIndex extends React.Component {
                     <div className='row centered'>
                         <div className='three wide column black'>
                             {/* "view items" link, but with some kind of slogan / pitch / img */}
+                            <Link to='/items'>View our affordable, quality items.</Link>
                         </div>
                         <div className='three wide column'>
                             {/* "contact us" (?) this can lead to a "coming soon" / dummy component/page */}
+                            <Link to='#'>Contact us</Link>
                         </div>
                     </div>
                     <div className='row'>
