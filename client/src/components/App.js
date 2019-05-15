@@ -26,6 +26,7 @@ import EditItem from './admin/items/EditItem'
 // admin users functionality
 import AdminUsersView from './admin/users'
 
+import Contact from './Contact'
 import Header from './Header'
 import Footer from './Footer'
 import history from '../history';
@@ -39,6 +40,7 @@ const App = () => {
                     <Switch>
                         {/* users */}
                         <Route path='/' exact component={UserIndex} />
+                        <Route path='/contact' exact component={Contact} />
                         <Route path='/signup' exact component={UserSignUp} />
                         <Route path='/signin' exact component={UserSignIn} />
                         <Route path='/items' exact component={ItemsUserView} />
