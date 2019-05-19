@@ -25,5 +25,26 @@ h1.title {
     /* height: 10vh; */
     background-image: linear-gradient(to right, rgb(211, 211, 211), rgb(255, 255, 255));
     text-align: center;
-    padding: 10%, 0;
+    padding: 5vh 15%;
+}
+
+.items, .contact {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 33vh;
+}
+
+.items {
+    background-image: url('./img/hammer.jpg');
+}
+
+.items h5, .contact h5 {
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    top: 15vh;
+}
+
+.contact {
+    background-image: url('./img/contact.jpg');
 }

@@ -10,7 +10,7 @@ class UserIndex extends React.Component {
     }
 
     featuredItem = () => {
-        let item = this.props.items
+        const item = this.props.items
 
         if (!item) {
             return <div>Loading...</div>
@@ -36,13 +36,13 @@ class UserIndex extends React.Component {
                         <h1 className='title'>Carb Tech Solutions</h1>
                     </div>
                 </div>
-                <div className='ui middle aligned stackable grid container'>
+                {/* <div className='ui middle aligned stackable grid container'> */}
+                <div className='ui stackable grid'>
                     <div className='row centered'>
-                        <div className='four wide column black'>
+                        <div className='three wide column black'>
                             {this.featuredItem()}
                         </div>
                         <div className='four wide column'>
-                            {/* some kind of feature/description regarding carb rebuild kit */}
                             Our quality carburetor rebuild kits guarantee that you will have your equipments running like new!
                         </div>
                         <div className='four wide column'>
@@ -59,17 +59,14 @@ class UserIndex extends React.Component {
                         {/* insert some kind of background image / color gradient here? maybe make this outside of gric container (similar to how banner is currently set up) */}
                         <h5 className='about'>
                             Carb Tech Solutions (CTS) is an online retailer and distributor that specializes in carburetor rebuild kits. These kits include (but are not limited to) metering and pump diaphragms, inlet needle values, and entire carburetor assemblies. Our goal is to provide high quality aftermarket alternatives comparable to those of original manufactured parts and accessories.
-                        
                         </h5>
                     </div>
                     <div className='row centered'>
-                        <div className='three wide column black'>
-                            {/* "view items" link, but with some kind of slogan / pitch / img */}
-                            <Link to='/items'>View our affordable, quality items.</Link>
+                        <div className='five wide column items'>
+                            <h5><Link to='/items'>View our affordable, quality items.</Link></h5>
                         </div>
-                        <div className='three wide column'>
-                            {/* "contact us" (?) this can lead to a "coming soon" / dummy component/page */}
-                            <Link to='/contact'>Contact us</Link>
+                        <div className='five wide column contact'>
+                            <h5><Link to='/contact'>Contact us</Link></h5>
                         </div>
                     </div>
                     <div className='row'>
