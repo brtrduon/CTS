@@ -42,8 +42,10 @@ class UserIndex extends React.Component {
                         <div className='three wide column black'>
                             {this.featuredItem()}
                         </div>
-                        <div className='four wide column'>
-                            Our quality carburetor rebuild kits guarantee that you will have your equipments running like new!
+                        <div className='four wide column grey'>
+                            <h2>
+                                Our quality carburetor rebuild kits guarantee that you will have your equipments running like new!
+                            </h2>
                         </div>
                         <div className='four wide column'>
                             <h1>Success Stories</h1>
@@ -56,7 +58,6 @@ class UserIndex extends React.Component {
                         </div>
                     </div>
                     <div className='row centered'>
-                        {/* insert some kind of background image / color gradient here? maybe make this outside of gric container (similar to how banner is currently set up) */}
                         <h5 className='about'>
                             Carb Tech Solutions (CTS) is an online retailer and distributor that specializes in carburetor rebuild kits. These kits include (but are not limited to) metering and pump diaphragms, inlet needle values, and entire carburetor assemblies. Our goal is to provide high quality aftermarket alternatives comparable to those of original manufactured parts and accessories.
                         </h5>
