@@ -17,7 +17,7 @@ class UserIndex extends React.Component {
         }
 
         return (
-            <div>
+            <div className='featured_item'>
                 <h3>Featured Item</h3>
                 <h5><Link to={`/item/${item._id}`}>{item.name}</Link></h5>
                 <h5>{item.description}</h5>
@@ -40,18 +40,22 @@ class UserIndex extends React.Component {
                 <div className='ui stackable grid'>
                     <div className='row centered'>
                         <div className='three wide column black'>
+                            {/* dummy img? either put a generic img due to different stuff being pulled if db is being added when deploying or work on img upload (the latter optioon will take longer to do) */}
                             {this.featuredItem()}
                         </div>
                         <div className='four wide column grey'>
                             <h2>
+                                {/* background img? static img? parallax scrolling? */}
                                 Our quality carburetor rebuild kits guarantee that you will have your equipments running like new!
                             </h2>
                         </div>
                         <div className='four wide column'>
                             <h1>Success Stories</h1>
+                            {/* insert some dummy img here */}
                             <h5>
                                 "Carb Tech Solutions provides us with a do-it-yourself affordable types of products that allows us to fix our equipments without having to bring our equipments into repair shops. We are glad that there is an alternative to having to make that long trip to get our lawn equipments running again!"
                             </h5>
+                            {/* insert some dummy img here */}
                             <h5>
                                 "As a commercial gardener, these guys provide quality parts at a low price to quickly get our machines up and running. Shipping times may vary, but these guys typically ensure our orders get to us within three to five business days. Would definitely recommend to anyone who is willing to fix stuff themselves."
                             </h5>
@@ -64,10 +68,11 @@ class UserIndex extends React.Component {
                     </div>
                     <div className='row centered'>
                         <div className='five wide column items'>
-                            <h5><Link to='/items'>View our affordable, quality items.</Link></h5>
+                            {/* change font type (?) */}
+                            <h5><Link className='link' to='/items'>View our affordable, quality items.</Link></h5>
                         </div>
                         <div className='five wide column contact'>
-                            <h5><Link to='/contact'>Contact us</Link></h5>
+                            <h5><Link className='link' to='/contact'>Contact us</Link></h5>
                         </div>
                     </div>
                     <div className='row'>

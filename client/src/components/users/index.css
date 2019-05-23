@@ -1,7 +1,11 @@
+h5 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
 .banner {
     margin-bottom: 2vh;
     min-height: 100vh;
-    /* width: 100%; */
     background-image: url('./img/banner.jpg');
     background-attachment: fixed;
     background-position: 20%;
@@ -18,8 +22,11 @@ h1.title {
     padding: 33vh 0;
 }
 
+.featured_item {
+    text-align: center;
+}
+
 .about {
-    /* height: 10vh; */
     background-image: linear-gradient(to right, rgb(211, 211, 211), rgb(255, 255, 255));
     text-align: center;
     padding: 5vh 15%;
@@ -40,6 +47,11 @@ h1.title {
     vertical-align: middle;
     position: relative;
     top: 15vh;
+}
+
+.link {
+    color: rgb(238, 238, 238);
+
 }
 
 .contact {
