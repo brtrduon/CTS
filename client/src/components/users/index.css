@@ -1,3 +1,7 @@
+* {
+    grid-row-gap: 0 !important;
+}
+
 h1, h5 {
     text-align: center;
 }
@@ -32,7 +36,6 @@ h1.title {
 .about {
     width: 100%;
     background-image: linear-gradient(to right, rgb(211, 211, 211), rgb(255, 255, 255));
-    padding: 5vh 3%;
 }
 
 .success_stories {

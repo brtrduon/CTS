@@ -1,32 +1,32 @@
 import React from 'react' 
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getItems } from '../../actions'
+// import { getItems } from '../../actions'
 import './index.css'
 
 class UserIndex extends React.Component {
-    componentDidMount() {
-        this.props.getItems()
-    }
+    // componentDidMount() {
+    //     this.props.getItems()
+    // }
 
-    featuredItem = () => {
-        const item = this.props.items
+    // featuredItem = () => {
+    //     const item = this.props.items
 
-        if (!item) {
-            return <div>Loading...</div>
-        }
+    //     if (!item) {
+    //         return <div>Loading...</div>
+    //     }
 
-        return (
-            <div>
-                <h5>Featured Item</h5>
-                <h5><Link to={`/item/${item._id}`}>{item.name}</Link></h5>
-                <h5>{item.description}</h5>
-                <h5>Item number: {item.item_number}</h5>
-                <h5>Brand: {item.brand}</h5>
-                <h5>${item.price}</h5>
-            </div>
-        )
-    }
+    //     return (
+    //         <div>
+    //             <h5>Featured Item</h5>
+    //             <h5><Link to={`/item/${item._id}`}>{item.name}</Link></h5>
+    //             <h5>{item.description}</h5>
+    //             <h5>Item number: {item.item_number}</h5>
+    //             <h5>Brand: {item.brand}</h5>
+    //             <h5>${item.price}</h5>
+    //         </div>
+    //     )
+    // }
 
     render(){
         return (
@@ -36,27 +36,23 @@ class UserIndex extends React.Component {
                         <h1 className='title'>Carb Tech Solutions</h1>
                     </div>
                 </div>
-                <div className='ui stackable grid'>
-                    <div className='ui row bottom attached'>
-                        <h5 className='about'>
-                            Carb Tech Solutions (CTS) is an online retailer and distributor that specializes in carburetor rebuild kits. These kits include (but are not limited to) metering and pump diaphragms, inlet needle values, and entire carburetor assemblies. Our goal is to provide high quality aftermarket alternatives comparable to those of original manufactured parts and accessories.
-                        </h5>
-                    </div>
+                <div className='ui grid'>
+                    <h5 className='about'>
+                        Carb Tech Solutions (CTS) is an online retailer and distributor that specializes in carburetor rebuild kits. These kits include (but are not limited to) metering and pump diaphragms, inlet needle values, and entire carburetor assemblies. Our goal is to provide high quality aftermarket alternatives comparable to those of original manufactured parts and accessories.
+                    </h5>
                     {/* <div className='ui bottom attached'>
                         <div className='three wide column black'>
                             {this.featuredItem()}
                         </div>
                     </div> */}
-                    <div className='ui row bottom attached'>    
-                        <div className='ui row success_stories'>
-                            <h1>Success Stories</h1>
-                            <h5>
-                                "Carb Tech Solutions provides us with a do-it-yourself affordable types of products that allows us to fix our equipments without having to bring our equipments into repair shops. We are glad that there is an alternative to having to make that long trip to get our lawn equipments running again!"
-                            </h5>
-                            <h5>
-                                "As a commercial gardener, these guys provide quality parts at a low price to quickly get our machines up and running. Shipping times may vary, but these guys typically ensure our orders get to us within three to five business days. Would definitely recommend to anyone who is willing to fix stuff themselves."
-                            </h5>
-                        </div>
+                    <div className='success_stories'>
+                        <h1>Success Stories</h1>
+                        <h5>
+                            "Carb Tech Solutions provides us with a do-it-yourself affordable types of products that allows us to fix our equipments without having to bring our equipments into repair shops. We are glad that there is an alternative to having to make that long trip to get our lawn equipments running again!"
+                        </h5>
+                        <h5>
+                            "As a commercial gardener, these guys provide quality parts at a low price to quickly get our machines up and running. Shipping times may vary, but these guys typically ensure our orders get to us within three to five business days. Would definitely recommend to anyone who is willing to fix stuff themselves."
+                        </h5>
                     </div>
                     <div className='row centered'>
                         <div className='five wide column items'>
@@ -87,21 +83,21 @@ class UserIndex extends React.Component {
                             </h5>
                         </div>
                     </div>
-                    <div className='row centered'>
-                    </div>
                 </div>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        items: Object.values(state.item)[0]
-    }
-}
+// const mapStateToProps = state => {
+//     return {
+//         items: Object.values(state.item)[0]
+//     }
+// }
 
-export default connect(
-    mapStateToProps,
-    { getItems }
-)(UserIndex)
+// export default connect(
+//     mapStateToProps,
+//     { getItems }
+// )(UserIndex)
+
+export default UserIndex
