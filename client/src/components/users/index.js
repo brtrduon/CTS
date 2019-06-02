@@ -33,7 +33,7 @@ class UserIndex extends React.Component {
                         </div>
                     </div>
                     <div className='row'>
-                        <div className='five wide column'>
+                        <div className='five wide column crack'>
                             <img src='./../../../assets/img/profile1.jpg' alt='profile1.jpg' />
                         </div>
                         <div className='eight wide column'>
