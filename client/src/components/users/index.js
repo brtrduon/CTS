@@ -1,33 +1,8 @@
 import React from 'react' 
-// import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-// import { getItems } from '../../actions'
 import './index.css'
 
 class UserIndex extends React.Component {
-    // componentDidMount() {
-    //     this.props.getItems()
-    // }
-
-    // featuredItem = () => {
-    //     const item = this.props.items
-
-    //     if (!item) {
-    //         return <div>Loading...</div>
-    //     }
-
-    //     return (
-    //         <div>
-    //             <h5>Featured Item</h5>
-    //             <h5><Link to={`/item/${item._id}`}>{item.name}</Link></h5>
-    //             <h5>{item.description}</h5>
-    //             <h5>Item number: {item.item_number}</h5>
-    //             <h5>Brand: {item.brand}</h5>
-    //             <h5>${item.price}</h5>
-    //         </div>
-    //     )
-    // }
-
     render(){
         return (
             <div>
@@ -40,11 +15,6 @@ class UserIndex extends React.Component {
                     <h5 className='about'>
                         Carb Tech Solutions (CTS) is an online retailer and distributor that specializes in carburetor rebuild kits. These kits include (but are not limited to) metering and pump diaphragms, inlet needle values, and entire carburetor assemblies. Our goal is to provide high quality aftermarket alternatives comparable to those of original manufactured parts and accessories.
                     </h5>
-                    {/* <div className='ui bottom attached'>
-                        <div className='three wide column black'>
-                            {this.featuredItem()}
-                        </div>
-                    </div> */}
                     <div className='success_stories'>
                         <h1>Success Stories</h1>
                         <h5>
@@ -56,7 +26,6 @@ class UserIndex extends React.Component {
                     </div>
                     <div className='row centered'>
                         <div className='five wide column items'>
-                            {/* change font style (?) */}
                             <h5><Link className='link' to='/items'>View our affordable, quality items.</Link></h5>
                         </div>
                         <div className='five wide column contact'>
@@ -88,16 +57,5 @@ class UserIndex extends React.Component {
         )
     }
 }
-
-// const mapStateToProps = state => {
-//     return {
-//         items: Object.values(state.item)[0]
-//     }
-// }
-
-// export default connect(
-//     mapStateToProps,
-//     { getItems }
-// )(UserIndex)
 
 export default UserIndex

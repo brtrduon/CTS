@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getItems } from '../../actions'
 import { addToCart } from '../../actions/UserActions'
+import './index.css'
 
 class UserIndex extends React.Component {
     state = {
@@ -70,7 +71,7 @@ class UserIndex extends React.Component {
         if (this.state.brand === 'All' && this.state.item_type === 'All') {
             return this.props.items.map(item => {
                 return (
-                    <div className='ui equal width doubling' key={item._id}>
+                    <div className='ui equal width doubling item0' key={item._id}>
                         <h5>Item name: <Link to={`/item/${item._id}`}>{item.name}</Link></h5>
                         <h5>{item.description ? `Item Description: ${item.description}` : null}</h5>
                         <h5>{item.brand ? `Brand: ${item.brand}` : null}</h5>
@@ -89,7 +90,7 @@ class UserIndex extends React.Component {
             return this.props.items.filter(item => 
                 item.item_type === this.state.item_type
                 ).map(item =>
-                    <div className='ui equal width' key={item._id}>
+                    <div className='ui equal width doubling item0' key={item._id}>
                         <h5>Item name: <Link to={`/item/${item._id}`}>{item.name}</Link></h5>
                         <h5>{item.description ? `Item Description: ${item.description}` : null}</h5>
                         <h5>{item.brand ? `Brand: ${item.brand}` : null}</h5>
@@ -107,7 +108,7 @@ class UserIndex extends React.Component {
             return this.props.items.filter(item => 
                 item.brand === this.state.brand
                 ).map(item =>
-                    <div className='ui equal width' key={item._id}>
+                    <div className='ui equal width doubling item0' key={item._id}>
                         <h5>Item name: <Link to={`/item/${item._id}`}>{item.name}</Link></h5>
                         <h5>{item.description ? `Item Description: ${item.description}` : null}</h5>
                         <h5>{item.brand ? `Brand: ${item.brand}` : null}</h5>
@@ -124,7 +125,7 @@ class UserIndex extends React.Component {
         return this.props.items.filter(item => 
             item.item_type === this.state.item_type && item.brand === this.state.brand
             ).map(item =>
-                <div className='ui equal width' key={item._id}>
+                <div className='ui equal width doubling item0' key={item._id}>
                     <h5>Item name: <Link to={`/item/${item._id}`}>{item.name}</Link></h5>
                     <h5>{item.description ? `Item Description: ${item.description}` : null}</h5>
                     <h5>{item.brand ? `Brand: ${item.brand}` : null}</h5>

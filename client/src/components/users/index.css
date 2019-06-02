@@ -62,3 +62,8 @@ h1.title {
 .contact {
     background-image: url('./img/contact.jpg');
 }
+
+/* ItemsUserView */
+.item0 {
+    border: 1px solid rgb(245, 245, 245);
+}
