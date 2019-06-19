@@ -1,7 +1,7 @@
 import axios from 'axios'
 import history from '../history'
 
-const serverURL = 'http://localhost:8000'
+const serverURL = 'http://localhost:8003'
 
 export const adminLogin = formValues => async dispatch => {
     const res = await axios.post(`${serverURL}/adminsignin`, { ...formValues })
