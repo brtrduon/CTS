@@ -13,7 +13,7 @@ import RemoveItemFromCart from './users/cart/RemoveItemFromCart'
 import Checkout from './users/cart/Checkout'
 
 // admin functionality
-import AdminLogin from './admin'
+import AdminLogin from './admin/index'
 import RequireAuth from './admin/auth'
 import AdminSignUp from './admin/AdminSignUp'
 
